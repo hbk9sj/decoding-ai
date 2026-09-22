@@ -1,0 +1,31 @@
+{
+  "kind": "carousel",
+  "pillar": "belief",
+  "template": "broadsheet",
+  "slug": "2026-09-23-overruling-ai-is-the-skill",
+  "topic": "IBM 2026 CHRO study: executives rank supervising and overriding AI far above what employees do",
+  "kicker": "The wrong belief",
+  "issue": "No. 01",
+  "handle": "Decoding AI",
+  "title": "The AI skill your boss ranks first",
+  "source": {
+    "title": "Designing the Thinking Organization (2026 CHRO Study)",
+    "publisher": "IBM Institute for Business Value",
+    "date": "21 Sep 2026",
+    "url": "https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/2026-chro"
+  },
+  "body": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.\n\nThat gap is from IBM's new study of 1,500 HR chiefs and 8,800 employees, run April to June 2026.\n\nEveryone is learning to prompt. Almost nobody is practising the thing employers rank first: catching the answer that is wrong.\n\nIt gets sharper. 60% of employees say their own skills are slipping, and the one they name most is critical thinking. Only 26% of companies have written down which decisions stay human.\n\nSo the scarce skill next year is not speed. It is being the person who can say: this output is wrong, and here is how I know.\n\nToday, take one AI answer you accepted this week and find the part you cannot verify. That is your gap.",
+  "action": "take one AI answer you accepted this week and find the part you cannot verify",
+  "first_comment": "Source: IBM Institute for Business Value, \"Designing the Thinking Organization\" (2026 CHRO Study), published 21 Sep 2026 — https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/2026-chro",
+  "pages": [
+    { "type": "cover", "headline": "Your boss ranks overruling AI above using it", "deck": "IBM asked 1,500 HR chiefs and 8,800 employees which skill matters most. They disagree by 33 points.", "cue": "Swipe →", "readtime": "90-second read" },
+    { "type": "stat", "label": "Executives who rank supervising and overriding AI first", "value": "71%", "body": "Among employees, 38% say the same. A 33-point gap on the one skill the people who write job descriptions rank highest." },
+    { "type": "point", "index": 1, "headline": "Prompting is not the scarce skill", "body": "Prompt tips are everywhere and cost nothing to copy. Knowing when the answer is wrong is the thing the survey says employers are short of." },
+    { "type": "point", "index": 2, "headline": "Your own skills are slipping quietly", "body": "60% of employees told IBM they worry their skills are eroding. The one they name most often is critical thinking, the exact skill being asked for." },
+    { "type": "contrast", "headline": "Two ways to use the same tool", "leftLabel": "Deferring", "left": "Accept the draft, send it on, hope the numbers hold up.", "rightLabel": "Supervising", "right": "Check the claim that carries the risk, then send it with a note on what you checked." },
+    { "type": "point", "index": 3, "headline": "Most firms never drew the line", "body": "Only 26% clearly define which work is human-led and which is AI-assisted. Until that is written down, the person who overrides the model carries the risk alone." },
+    { "type": "quote", "quote": "Employees stop deferring to the machine and start supervising it.", "attrib": "IBM Institute for Business Value, 2026", "body": "Where HR shares ownership of that boundary, 76% of those organisations report staff feel safe to question or override AI." },
+    { "type": "takeaway", "label": "Do this today", "headline": "Find the part you cannot verify", "body": "Take one AI answer you accepted this week. Mark the claim that would cost most if it were wrong. Check that one. The habit is the skill." },
+    { "type": "cta", "headline": "One idea, decoded, every week", "body": "Plain English, a named source, and one thing to do with it.", "foot": "Follow for the next one" }
+  ]
+}
