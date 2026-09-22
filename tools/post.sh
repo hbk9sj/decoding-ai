@@ -22,15 +22,16 @@ ch=$(q 'query($id: ChannelId!){ channel(input:{id:$id}){ isDisconnected isLocked
 [ "$(jq -r '.data.channel.isDisconnected' <<<"$ch")" = "false" ] || { echo "Buffer channel is disconnected - reconnect it before posting" >&2; exit 2; }
 [ "$(jq -r '.data.channel.service' <<<"$ch")" = "linkedin" ] || { echo "channel is not the LinkedIn one" >&2; exit 2; }
 
-# 1. the scheduled-post cap is shared with every other channel on this Buffer plan
+# 1. the scheduled-post cap is PER CHANNEL, not per account - checked 22 Sep 2026 by
+# queueing an 11th post while the account already held 10 across its channels, which
+# Buffer accepted. So count only this channel's pending posts.
 cap=$(q 'query{ account { organizations { id limits { scheduledPosts } } } }' \
   | jq -r --arg o "$BUFFER_ORGANIZATION_ID" '.data.account.organizations[] | select(.id == $o) | .limits.scheduledPosts')
-pending=$(q 'query($o: OrganizationId!){ posts(first:50, input:{organizationId:$o, filter:{status:[scheduled,needs_approval,draft]}}){ edges { node { id } } } }' \
-  "$(jq -cn --arg o "$BUFFER_ORGANIZATION_ID" '{o:$o}')" | jq '.data.posts.edges | length')
+pending=$(q 'query($o: OrganizationId!, $c: ChannelId!){ posts(first:50, input:{organizationId:$o, filter:{channelIds:[$c], status:[scheduled,needs_approval,draft]}}){ edges { node { id } } } }' \
+  "$(jq -cn --arg o "$BUFFER_ORGANIZATION_ID" --arg c "$BUFFER_CHANNEL_ID" '{o:$o,c:$c}')" | jq '.data.posts.edges | length')
 if [ "$pending" -ge "${cap:-10}" ]; then
-  echo "Buffer holds $pending pending posts and the plan cap is $cap - not queueing another" >&2; exit 2
+  echo "this channel already holds $pending pending posts and the cap is $cap - not queueing another" >&2; exit 2
 fi
-[ "$pending" -ge $(( ${cap:-10} - 1 )) ] && echo "warning: only one slot left on this Buffer plan ($pending/$cap used, shared with the other channels)" >&2
 
 # 2. assets
 assets='[]'
