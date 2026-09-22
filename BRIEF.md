@@ -126,6 +126,12 @@ The `body` field is still the post text that sits above the document in the feed
 
 ---
 
+## Before you write anything: is this slot already done?
+
+If `posts/<today>-<slot>/run.md` exists, that slot has already been handled — a run before
+you did it. Post nothing, change nothing, and say so. A second folder for the same slot
+either duplicates a live post or sits ignored; neither is worth a run.
+
 ## What the routine must never do
 
 - Post a number, date or benchmark that is not in the source it quotes.
