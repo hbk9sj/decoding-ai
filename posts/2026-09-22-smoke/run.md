@@ -1,4 +1,4 @@
-# run 2026-09-22-smoke - 2026-09-22T11:38:29Z
+# run 2026-09-22-smoke - 2026-09-22T12:02:09Z
 
 kind: carousel - pillar: decoded
 
@@ -10,7 +10,12 @@ text ok · 556 chars · hook 57 chars · grade 7.4 · 0 hashtags
 
 post: FAILED
 ```
-Buffer holds 10 pending posts and the plan cap is 10 - not queueing another
+fatal: could not read Username for 'https://github.com': No such device or address
+fatal: could not read Username for 'https://github.com': No such device or address
+fatal: could not read Username for 'https://github.com': No such device or address
+fatal: could not read Username for 'https://github.com': No such device or address
+fatal: could not read Username for 'https://github.com': No such device or address
+asset push failed
 ```
 
-workflow: https://github.com/hbk9sj/decoding-ai/actions/runs/35722502283
+workflow: https://github.com/hbk9sj/decoding-ai/actions/runs/35724688377
