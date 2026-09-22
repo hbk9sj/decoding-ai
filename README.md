@@ -28,6 +28,15 @@ cd tools && npm ci && npx playwright install chromium
 bash tools/verify.sh        # must end "0 failure(s)"
 ```
 
+## The one thing that will block this
+
+The Buffer plan caps **10 scheduled posts across every channel on the account**, and this
+account also runs @madprompter, which keeps about 9 queued three days ahead. Decoding AI
+therefore has roughly one free slot at a time, and `tools/post.sh` refuses (loudly, in
+`run.md`) rather than failing silently when the queue is full. Four posts a week needs one
+of: a paid Buffer plan, @madprompter queueing one day ahead instead of three, or Decoding
+AI posting through the LinkedIn API directly.
+
 ## Secrets (Actions, and the routine's environment)
 
 `BUFFER_ACCESS_TOKEN`, `BUFFER_CHANNEL_ID`, `BUFFER_ORGANIZATION_ID`. Nothing else, and
