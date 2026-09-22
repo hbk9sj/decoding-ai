@@ -40,15 +40,19 @@ if [ "$kind" = "carousel" ]; then
   total=$(jq '.pages | length' "$dir/gate.json")
   [ "$clean" = "$total" ] || { echo "gate.json reports $clean/$total clean pages - not posting" >&2; exit 2; }
   [ -s "$dir/carousel.pdf" ] && [ -s "$dir/thumb.png" ] || { echo "carousel.pdf or thumb.png missing - run tools/render.mjs" >&2; exit 2; }
+  # In CI there is no credential helper, so the token has to be in the remote URL.
+  # It never reaches the log: the URL is only ever passed to git, and the clone is deleted.
+  remote="https://github.com/$REPO.git"
+  [ -n "${GH_TOKEN:-}" ] && remote="https://x-access-token:${GH_TOKEN}@github.com/$REPO.git"
   work="$(mktemp -d)"
-  git clone -q --depth 1 --branch "$BRANCH" "https://github.com/$REPO.git" "$work" 2>/dev/null \
-    || { git clone -q --depth 1 "https://github.com/$REPO.git" "$work"; git -C "$work" switch -q --orphan "$BRANCH"; git -C "$work" rm -rqf . 2>/dev/null || true; }
+  git clone -q --depth 1 --branch "$BRANCH" "$remote" "$work" 2>/dev/null \
+    || { git clone -q --depth 1 "$remote" "$work"; git -C "$work" switch -q --orphan "$BRANCH"; git -C "$work" rm -rqf . 2>/dev/null || true; }
   mkdir -p "$work/$folder"; cp "$dir/carousel.pdf" "$dir/thumb.png" "$work/$folder/"
   ( cd "$work"
     git config user.name decoding-ai; git config user.email decoding-ai@users.noreply.github.com
     git add "$folder/carousel.pdf" "$folder/thumb.png"
     git diff --cached --quiet || git commit -qm "assets: $name"
-    for try in 1 2 3 4 5; do git push -q origin "HEAD:$BRANCH" && break; git fetch -q origin "$BRANCH" && git rebase -q "origin/$BRANCH" || true
+    for try in 1 2 3 4 5; do git push -q origin "HEAD:$BRANCH" 2>/dev/null && break; git fetch -q origin "$BRANCH" && git rebase -q "origin/$BRANCH" || true
       [ "$try" = 5 ] && { echo "asset push failed" >&2; exit 2; }; sleep 5; done )
   rm -rf "$work"
   pdf_url="$RAW/$folder/carousel.pdf"; thumb_url="$RAW/$folder/thumb.png"
