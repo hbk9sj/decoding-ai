@@ -1,0 +1,182 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Decoding AI — page</title>
+<link rel="stylesheet" href="kit.css">
+<body>
+<div id="mount"></div>
+<script>
+// One page of one carousel. ?post=posts/<folder>&page=<1-based>
+// Deterministic: all jitter comes from a seeded PRNG keyed on slug+page.
+const qs = new URLSearchParams(location.search);
+const postDir = qs.get('post'), pageNo = parseInt(qs.get('page') || '1', 10);
+
+const mulberry = s => () => (s = s + 0x6D2B79F5, (t => ((t = Math.imul(t ^ t >>> 15, t | 1)), (t ^= t + Math.imul(t ^ t >>> 7, t | 61)), ((t ^ t >>> 14) >>> 0) / 4294967296))(s));
+const hash = str => { let h = 2166136261; for (const c of str) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
+const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+
+const grain = (op, scale) => `<svg class="grain" style="opacity:${op}" width="1100" height="1370">
+  <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="${scale}" numOctaves="3" stitchTiles="stitch" seed="7"/>
+  <feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>`;
+
+// ---------- template furniture ----------
+const deco = {
+  broadsheet(p, r) {
+    const marks = `<svg width="1080" height="1350" style="position:absolute;inset:0">
+      ${[[40, 40, 1, 1], [1040, 40, -1, 1], [40, 1310, 1, -1], [1040, 1310, -1, -1]].map(([x, y, sx, sy]) =>
+        `<path d="M${x} ${y} l${22 * sx} 0 M${x} ${y} l0 ${22 * sy}" stroke="#141110" stroke-width="1.5" opacity=".55"/>`).join('')}
+    </svg>`;
+    return marks;
+  },
+  riso(p, r) {
+    const shapes = [];
+    for (let i = 0; i < 2; i++) {
+      const x = 470 + r() * 380, y = 130 + r() * 300, s = 200 + r() * 260;
+      const ink = i % 2 ? '#FF5A36' : '#1B3A94';
+      shapes.push(`<div class="blob" style="left:${x | 0}px;top:${y | 0}px;width:${s | 0}px;height:${s | 0}px;
+        background:${ink};opacity:.13;border-radius:${i === 1 ? '0' : '50%'};transform:rotate(${(r() * 30 - 15).toFixed(1)}deg)"></div>`);
+    }
+    // halftone bar
+    shapes.push(`<svg style="position:absolute;left:0;top:0;width:1080px;height:1350px;mix-blend-mode:multiply" opacity=".5">
+      <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+        <circle cx="4" cy="4" r="3.1" fill="#1B3A94" opacity=".33"/></pattern></defs>
+      <rect x="0" y="1250" width="1080" height="100" fill="url(#dots)"/></svg>`);
+    return shapes.join('');
+  },
+  field(p, r) {
+    const g = `<svg class="grid" width="1080" height="1350">
+      <defs><pattern id="sq" width="45" height="45" patternUnits="userSpaceOnUse">
+        <path d="M45 0 L0 0 0 45" fill="none" stroke="#C9D6E8" stroke-width="1.2"/></pattern></defs>
+      <rect width="1080" height="1350" fill="url(#sq)"/>
+      <rect x="0" y="0" width="1080" height="1350" fill="none" stroke="#C9D6E8" stroke-width="0"/>
+      <line x1="140" y1="0" x2="140" y2="1350" stroke="#E2B7AC" stroke-width="2"/></svg>`;
+    // punched holes
+    const holes = [300, 675, 1050].map(y => `<circle cx="70" cy="${y}" r="17" fill="#EAE7DC" stroke="#D8D4C6" stroke-width="2"/>`).join('');
+    return g + `<svg style="position:absolute;inset:0" width="1080" height="1350">${holes}</svg>`;
+  },
+  memo(p, r) {
+    const bits = [];
+    for (let i = 0; i < 90; i++) {
+      const x = r() * 1080, y = r() * 1350, a = r() * Math.PI, len = 6 + r() * 22;
+      bits.push(`<line x1="${x | 0}" y1="${y | 0}" x2="${(x + Math.cos(a) * len) | 0}" y2="${(y + Math.sin(a) * len) | 0}" stroke="#C0AE86" stroke-width="1" opacity=".35"/>`);
+    }
+    const rules = [];
+    for (let y = 250; y < 1290; y += 62) rules.push(`<line x1="72" y1="${y}" x2="1008" y2="${y}" stroke="#D6C7A2" stroke-width="1" opacity=".55"/>`);
+    return `<svg style="position:absolute;inset:0" width="1080" height="1350">${rules.join('')}${bits.join('')}
+      <rect x="0" y="0" width="1080" height="16" fill="#DCCFAF"/>
+      <rect x="0" y="1334" width="1080" height="16" fill="#DCCFAF"/></svg>`;
+  },
+};
+
+// ---------- page bodies ----------
+function head(copy, i, n, tpl) {
+  const left = i === 1 ? (copy.kicker || 'DECODING AI') : (copy.section || copy.kicker || 'DECODING AI');
+  return `<div class="row" data-box="text" style="justify-content:space-between;align-items:baseline">
+    <div class="kicker">${esc(left)}</div><div class="folio">${i} / ${n}</div></div>`;
+}
+function foot(copy, i, n, tpl) {
+  const src = copy.source ? `${copy.source.publisher}${copy.source.date ? ', ' + copy.source.date : ''}` : '';
+  return `<div class="row" data-box="text" style="justify-content:space-between;align-items:flex-end;gap:24px">
+    <div class="label" style="max-width:640px">${esc(src)}</div>
+    <div class="label">${esc(copy.handle || 'Decoding AI')}</div></div>`;
+}
+
+const bodies = {
+  cover(p, copy, tpl, r) {
+    const cue = esc(p.cue || 'Swipe →');
+    const slug = `${esc(copy.kicker || 'Decoded')} &nbsp;·&nbsp; ${esc(copy.issue || 'No. 01')} &nbsp;·&nbsp; ${esc(p.readtime || '90-second read')}`;
+    const top = tpl === 'memo'
+      ? `<div class="col" data-box="text" style="gap:26px">
+           <div class="stamp" style="align-self:flex-start;transform:rotate(-2.4deg)">${esc(copy.stamp || 'Internal memo')}</div>
+           <div class="label">${esc(p.slugline || slug.replace(/&nbsp;/g, ' '))}</div></div>`
+      : `<div class="col" data-box="text" style="gap:18px">
+           <div class="label">${slug}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:26px">
+        <div class="headline">${esc(p.headline)}</div>
+        <div class="hr"></div>
+        <div class="deck">${esc(p.deck)}</div>
+        <div class="${tpl === 'field' ? 'hand' : 'cue'}" style="${tpl === 'field' ? 'transform:rotate(-2.2deg);' : ''}margin-top:6px">${cue}</div>
+      </div>`;
+    return { top, bottom };
+  },
+  point(p, copy, tpl, r) {
+    const n = String(p.index ?? '').padStart(2, '0');
+    const top = `<div class="row" data-box="text" style="gap:30px;align-items:flex-start">
+        <div class="numeral">${n}</div>
+        <div class="headline small" style="flex:1">${esc(p.headline)}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:20px">
+        <div class="hr"></div>
+        <div class="body">${esc(p.body)}</div>
+        ${p.note ? `<div class="${tpl === 'field' ? 'hand' : 'label'}" style="${tpl === 'field' ? 'transform:rotate(-1.4deg);' : ''}margin-top:6px">${esc(p.note)}</div>` : ''}
+      </div>`;
+    return { top, bottom };
+  },
+  stat(p, copy, tpl, r) {
+    const top = `<div class="col" data-box="text" style="gap:18px">
+        <div class="label">${esc(p.label || '')}</div>
+        <div class="bigstat">${esc(p.value)}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:20px">
+        <div class="hr"></div><div class="body">${esc(p.body)}</div></div>`;
+    return { top, bottom };
+  },
+  contrast(p, copy, tpl, r) {
+    const box = (t, v, accent) => tpl === 'field'
+      ? `<div class="card col" style="padding:32px;gap:16px;flex:1"><div class="label">${esc(t)}</div><div class="body">${esc(v)}</div></div>`
+      : `<div class="col" style="gap:16px;flex:1;border-top:${accent ? '6px' : '2px'} solid currentColor;padding-top:22px;${accent ? '' : 'opacity:.6'}"><div class="label">${esc(t)}</div><div class="body">${esc(v)}</div></div>`;
+    const top = `<div class="col" data-box="text" style="gap:14px"><div class="headline small">${esc(p.headline)}</div></div>`;
+    const bottom = `<div class="row" data-box="text" style="gap:36px;align-items:stretch">${box(p.leftLabel || 'What you hear', p.left, false)}${box(p.rightLabel || 'What is true', p.right, true)}</div>`;
+    return { top, bottom };
+  },
+  quote(p, copy, tpl, r) {
+    const top = `<div class="col" data-box="text" style="gap:22px">
+        <div class="quotemark">&ldquo;</div>
+        <div class="headline small">${esc(p.quote)}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:18px">
+        <div class="hr"></div>
+        <div class="label">${esc(p.attrib || '')}</div>
+        ${p.body ? `<div class="body" style="margin-top:6px">${esc(p.body)}</div>` : ''}</div>`;
+    return { top, bottom };
+  },
+  takeaway(p, copy, tpl, r) {
+    const top = `<div class="col" data-box="text" style="gap:20px">
+        <div class="kicker">${esc(p.label || 'Do this today')}</div>
+        <div class="headline small">${esc(p.headline)}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:20px">
+        <div class="hr"></div>
+        <div class="body">${esc(p.body)}</div>
+        ${p.note ? `<div class="${tpl === 'field' ? 'hand' : 'label'}" style="${tpl === 'field' ? 'transform:rotate(-2deg);' : ''}margin-top:6px">${esc(p.note)}</div>` : ''}</div>`;
+    return { top, bottom };
+  },
+  cta(p, copy, tpl, r) {
+    const top = `<div class="col" data-box="text" style="gap:22px">
+        <div class="headline small">${esc(p.headline)}</div>
+        <div class="deck">${esc(p.body)}</div></div>`;
+    const bottom = `<div class="col" data-box="text" style="gap:16px">
+        <div class="hr"></div>
+        <div class="signoff">${esc(copy.handle || 'Decoding AI')}</div>
+        <div class="label">${esc(p.foot || 'New decode every week')}</div></div>`;
+    return { top, bottom };
+  },
+};
+
+(async function () {
+  const copy = await (await fetch(`/${postDir}/copy.json`)).json();
+  const pages = copy.pages, p = pages[pageNo - 1], tpl = copy.template || 'broadsheet';
+  const r = mulberry(hash((copy.slug || 'x') + ':' + pageNo));
+  const { top, bottom } = (bodies[p.type] || bodies.point)(p, copy, tpl, r);
+  const grainOp = { broadsheet: .085, riso: .07, field: .06, memo: .13 }[tpl];
+  const grainSc = { broadsheet: '.85', riso: '.7', field: '.9', memo: '.55' }[tpl];
+  document.getElementById('mount').innerHTML = `
+    <div class="artboard t-${tpl}">
+      ${deco[tpl](p, r)}
+      <div class="safe col" style="justify-content:space-between">
+        <div class="col" style="gap:0">${head(copy, pageNo, pages.length, tpl)}</div>
+        <div class="col" style="flex:1;gap:38px;justify-content:${p.type === 'cover' ? 'space-between' : 'center'};padding:${p.type === 'cover' ? '46px 0 34px' : '40px 0'}">
+          <div>${top}</div><div>${bottom}</div></div>
+        ${foot(copy, pageNo, pages.length, tpl)}
+      </div>
+      ${grain(grainOp, grainSc)}
+    </div>`;
+  await document.fonts.ready;
+  document.body.dataset.ready = '1';
+})();
+</script>
