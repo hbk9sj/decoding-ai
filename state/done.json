@@ -7,5 +7,14 @@
     "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
     "post_id": "6ab266422f30e64179d4ecdd",
     "date": "2026-09-22"
+  },
+  "2026-09-22-smoke": {
+    "topic": "CI smoke test: proves the worker can install Chromium, render, gate, publish assets and call Buffer",
+    "pillar": "decoded",
+    "kind": "carousel",
+    "template": "riso",
+    "hook": "71% of viral posts carry a number in the first two lines.",
+    "post_id": "6ab26eda320e771022fb9350",
+    "date": "2026-09-22"
   }
 }
