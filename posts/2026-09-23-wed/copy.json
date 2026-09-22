@@ -1,0 +1,15 @@
+{
+  "kind": "text",
+  "pillar": "tried",
+  "slug": "2026-09-23-csv-beats-json-tokens",
+  "topic": "Measured the same 50-row table as CSV, TSV, markdown and JSON with the o200k tokenizer: JSON costs 2.6x the tokens",
+  "body": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.\n\nI built a plain sales export, 50 rows and 6 columns, and counted it in four shapes with o200k. That is the tokenizer OpenAI's own code maps GPT-5 and GPT-4o to. Tab-separated: 1,234. CSV: 1,236. Markdown table: 1,451. Pretty-printed JSON: 3,222. The whole count took 21 milliseconds.\n\nJSON names every column again on every row. The header already said it once. That is about 40 tokens a row, paid for nothing.\n\nOn a ten-row paste, none of this matters. It bites when you drop a 2,000-row export in and the window fills up before your question does.\n\nOne thing I did not test: whether the shape changes the quality of the answer. I measured the cost, not the accuracy.\n\nToday, when a table goes into a chatbot, paste the CSV, not the JSON.",
+  "action": "when a table goes into a chatbot, paste the CSV, not the JSON",
+  "first_comment": "Source: OpenAI, tiktoken model.py, the map from model name to encoding (gpt-5 and gpt-4o both point at o200k_base), accessed 22 Sep 2026 — https://github.com/openai/tiktoken/blob/main/tiktoken/model.py · Counted in Node with the gpt-tokenizer package, which reproduces OpenAI's documented split of \"tiktoken is great!\" token for token.",
+  "source": {
+    "title": "tiktoken — model.py (model-to-encoding map)",
+    "publisher": "OpenAI",
+    "date": "accessed 22 Sep 2026",
+    "url": "https://github.com/openai/tiktoken/blob/main/tiktoken/model.py"
+  }
+}
