@@ -16,5 +16,14 @@
     "hook": "71% of viral posts carry a number in the first two lines.",
     "post_id": "6ab26eda320e771022fb9350",
     "date": "2026-09-22"
+  },
+  "2026-09-23-wed": {
+    "topic": "Measured the same 50-row table as CSV, TSV, markdown and JSON with the o200k tokenizer: JSON costs 2.6x the tokens",
+    "pillar": "tried",
+    "kind": "text",
+    "template": "-",
+    "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
+    "post_id": "6ab270698920619c8e5a2c5b",
+    "date": "2026-09-22"
   }
 }
