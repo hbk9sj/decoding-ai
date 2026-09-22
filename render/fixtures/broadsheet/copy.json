@@ -1,0 +1,22 @@
+{
+  "kind": "carousel",
+  "template": "broadsheet",
+  "pillar": "decoded",
+  "slug": "fixture-broadsheet",
+  "kicker": "Decoded",
+  "handle": "Decoding AI",
+  "title": "The 61% rule: what actually goes viral",
+  "topic": "fixture — template proof",
+  "source": { "publisher": "LinkPost study of 438,413 posts", "date": "Jul 2026", "url": "https://www.linkpost.gg/en/playbooks/linkedin-algorithm-playbook-2026/study" },
+  "pages": [
+    { "type": "cover", "headline": "61% of viral posts do one boring thing", "deck": "A study of 438,413 posts found the pattern is not the hook everyone copies.", "cue": "Swipe →" },
+    { "type": "stat", "label": "Share of top-1% posts that use it", "value": "61%", "body": "Quantified proof: a real number, from a named source, in the first two lines. Not an adjective. Not a promise." },
+    { "type": "point", "index": 1, "headline": "A number beats a question", "body": "Opening with a precise number lifts median likes 17%. Opening with a question drops them 28%. Same idea, different first line." },
+    { "type": "point", "index": 2, "headline": "Say who, when, how much", "body": "Posts high on specificity beat their own baseline 68% of the time. Vague ones land at 50% — a coin flip." },
+    { "type": "contrast", "headline": "The line that decides it", "leftLabel": "Gets scrolled past", "left": "AI is changing how teams work. Here are my thoughts.", "rightLabel": "Gets read", "right": "We cut 9 hours a week off one report. The tool cost nothing." },
+    { "type": "quote", "quote": "Specificity is the moat: a date, a number, a detail only you could know.", "attrib": "RevUp Studio, 2026", "body": "It is also the one thing a model cannot invent for you." },
+    { "type": "point", "index": 3, "headline": "Imperative hooks are dead", "body": "\"Stop doing this\" scores 0.02× on engagement lift. It reads as a command from a stranger, and the feed treats it that way." },
+    { "type": "takeaway", "label": "Do this today", "headline": "Rewrite one first line", "body": "Take your last post. Replace the opening question with the most specific number you can defend. Keep everything else." },
+    { "type": "cta", "headline": "One idea, decoded, every week", "body": "Plain English, a real source, and one thing to do with it.", "foot": "Follow for the next one" }
+  ]
+}

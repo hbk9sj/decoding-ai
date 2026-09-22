@@ -1,0 +1,51 @@
+{
+  "slug": "fixture-memo",
+  "template": "memo",
+  "pages": [
+    {
+      "page": 1,
+      "type": "cover",
+      "problems": []
+    },
+    {
+      "page": 2,
+      "type": "stat",
+      "problems": []
+    },
+    {
+      "page": 3,
+      "type": "point",
+      "problems": []
+    },
+    {
+      "page": 4,
+      "type": "point",
+      "problems": []
+    },
+    {
+      "page": 5,
+      "type": "contrast",
+      "problems": []
+    },
+    {
+      "page": 6,
+      "type": "quote",
+      "problems": []
+    },
+    {
+      "page": 7,
+      "type": "point",
+      "problems": []
+    },
+    {
+      "page": 8,
+      "type": "takeaway",
+      "problems": []
+    },
+    {
+      "page": 9,
+      "type": "cta",
+      "problems": []
+    }
+  ]
+}
