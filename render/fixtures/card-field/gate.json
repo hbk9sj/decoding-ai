@@ -1,0 +1,11 @@
+{
+  "slug": "fixture-card-field",
+  "template": "field",
+  "pages": [
+    {
+      "page": 1,
+      "type": "stat",
+      "problems": []
+    }
+  ]
+}

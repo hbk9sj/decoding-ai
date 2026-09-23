@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Asha",
+    "team": "Design",
+    "score": 82
+  },
+  {
+    "id": 2,
+    "name": "Ben",
+    "team": "Sales",
+    "score": 77
+  },
+  {
+    "id": 3,
+    "name": "Chen",
+    "team": "Support",
+    "score": 91
+  },
+  {
+    "id": 4,
+    "name": "Dara",
+    "team": "Finance",
+    "score": 68
+  },
+  {
+    "id": 5,
+    "name": "Eli",
+    "team": "Ops",
+    "score": 74
+  }
+]

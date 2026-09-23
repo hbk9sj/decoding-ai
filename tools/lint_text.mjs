@@ -3,18 +3,29 @@
 // (see BRIEF.md for the sources); a post that breaks one does not get posted.
 //   node tools/lint_text.mjs <folder>      (folder holds copy.json with kind:"text")
 // Exit 0 clean, 2 on any breach.
-import { readFile } from 'node:fs/promises';
-import { resolve, join } from 'node:path';
+import { readFile, stat } from 'node:fs/promises';
+import { resolve, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const folder = process.argv[2];
 if (!folder) { console.error('usage: node tools/lint_text.mjs <folder>'); process.exit(1); }
-const copy = JSON.parse(await readFile(join(ROOT, folder, 'copy.json'), 'utf8'));
+const dir = join(ROOT, folder);
+const copy = JSON.parse(await readFile(join(dir, 'copy.json'), 'utf8'));
 const out = [];
-const text = String(copy.body || '');
+const full = String(copy.body || '').replace(/\s+$/, '');
+const URL_RE = /https?:\/\/[^\s)>\]]+/g;
+// The source ships inside the post: its last line, plain text, the only URL. A preview card
+// halves median reach (414 vs 858 impressions, 566,957 posts) and link comments get hidden,
+// so the URL rides in the body where the cost is small and it is always seen. Length, hook
+// and reading level are measured on the prose above that line.
+const allLines = full.split('\n');
+const lastLine = (allLines.at(-1) || '').trim();
+const text = allLines.slice(0, -1).join('\n').replace(/\s+$/, '');
 const lines = text.split('\n').map(s => s.trim());
 const first = lines[0] || '';
+// numbers as whole tokens, so "41" is not found inside "438,413"
+const nums = s => new Set((String(s ?? '').match(/\d(?:[\d,.]*\d)?/g) || []));
 
 // — the hook (the only part 60–70 % of readers ever see) —
 if (!first) out.push('body is empty');
@@ -24,9 +35,14 @@ if (/^(stop|start|read|don'?t|never|listen|attention)\b/i.test(first)) out.push(
 if (!/\d/.test(first + ' ' + (lines[1] || ''))) out.push('no number in the first two lines — quantified proof appears in 61 % of top-1 % posts');
 
 // — the body —
-if (text.length < 400 || text.length > 1300) out.push(`body is ${text.length} chars — keep it 400–1300`);
-if (/https?:\/\//.test(text)) out.push('a link in the body costs ~60 % of reach — put it in first_comment');
-const tags = text.match(/#\w+/g) || [];
+if (text.length < 400 || text.length > 1300) out.push(`body is ${text.length} chars without the source line — keep it 400–1300`);
+if (full.length > 3000) out.push(`whole body is ${full.length} chars — LinkedIn cuts a post at 3,000`);
+const urls = full.match(URL_RE) || [];
+if (urls.length !== 1) out.push(`exactly one URL in the body, the source, on the last line (found ${urls.length})`);
+const m = lastLine.match(/^Source:\s.+\s(https?:\/\/\S+)$/);
+if (!m) out.push('source line must be the last line: "Source: <who>, <when> — <url>"');
+else if (m[1] !== copy.source?.url) out.push(`the URL on the source line does not match source.url (${m[1]})`);
+const tags = full.replace(URL_RE, '').match(/#\w+/g) || [];
 if (tags.length > 2) out.push(`${tags.length} hashtags — more than 2 collapses reach`);
 if ((text.match(/\n\n/g) || []).length < 2) out.push('needs white space: at least three short blocks separated by blank lines');
 
@@ -46,7 +62,41 @@ if (grade > 10.5) out.push(`reading level grade ${grade.toFixed(1)} — keep it 
 if (!copy.action) out.push('no action line: every post ends with one thing the reader can do today');
 if (copy.action && !text.includes(copy.action.slice(0, 24))) out.push('the action line is not in the body');
 if (!copy.source?.url || !copy.source?.publisher) out.push('source.publisher and source.url are required');
-if (!copy.first_comment || !/https?:\/\//.test(copy.first_comment)) out.push('first_comment must carry the source link');
+if ('first_comment' in copy) out.push('first_comment is retired — the source goes on the last line of the body (Buffer Free refuses it, and LinkedIn hides link comments)');
+
+// — the card: every text post carries one image, and every number on it is in the body —
+const CARD = { stat: ['label', 'value', 'body'], contrast: ['headline', 'leftLabel', 'left', 'rightLabel', 'right'] };
+if (copy.kind === 'text') {
+  const c = copy.card;
+  if (!c || !CARD[c.type]) out.push('card required on a text post: {type: "stat" | "contrast", …fields, alt} (images lead under 5k followers)');
+  else {
+    const alt = String(c.alt || '');
+    if (alt.length < 40 || alt.length > 400) out.push(`card.alt is ${alt.length} chars — describe the card in 40–400`);
+    const inBody = nums(full);
+    for (const f of CARD[c.type]) for (const n of nums(c[f])) if (!inBody.has(n)) out.push(`card number ${n} not in body (card.${f})`);
+  }
+}
+
+// — "tried" means measured: the measurement ships with the post —
+const evidence = [];
+if (copy.pillar === 'tried') {
+  if (!Array.isArray(copy.evidence) || !copy.evidence.length) out.push('evidence required for a "tried" post: files under evidence/ that show the measurement');
+  else for (const e of copy.evidence) {
+    const p = resolve(dir, e);
+    if (relative(join(dir, 'evidence'), p).startsWith('..') || !(await stat(p).catch(() => null))?.isFile()) { out.push(`evidence file missing or outside evidence/: ${e}`); continue; }
+    evidence.push(await readFile(p, 'utf8'));
+  }
+}
+
+// — the second comment is posted by hand, so it may not carry a claim the post does not —
+if (copy.second_comment != null) {
+  const sc = String(copy.second_comment);
+  if (sc.length > 600) out.push(`second_comment is ${sc.length} chars — keep it under 600`);
+  if (URL_RE.test(sc)) out.push('second_comment carries a URL — the source is already on the post');
+  URL_RE.lastIndex = 0;
+  const known = nums([full, ...Object.values(copy.card || {}), ...evidence].join(' '));
+  for (const n of nums(sc)) if (!known.has(n)) out.push(`second_comment: ${n} appears nowhere else (body, card, evidence)`);
+}
 if (!copy.pillar) out.push('pillar missing (decoded | tried | belief)');
 if (!copy.slug) out.push('slug missing');
 

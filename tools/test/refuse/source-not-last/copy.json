@@ -1,0 +1,25 @@
+{
+  "kind": "text",
+  "pillar": "decoded",
+  "template": "riso",
+  "slug": "refuse-source-not-last",
+  "topic": "fixture — card proof",
+  "kicker": "Decoded",
+  "handle": "Decoding AI",
+  "source": {
+    "title": "LinkedIn algorithm playbook 2026: the study",
+    "publisher": "LinkPost study of 438,413 posts",
+    "date": "Jul 2026",
+    "url": "https://www.linkpost.gg/en/playbooks/linkedin-algorithm-playbook-2026/study"
+  },
+  "body": "61% of the top 1% of LinkedIn posts put a real number in the first two lines.\n\nThat comes from a study of 438,413 posts. The pattern is not a clever hook. It is a count, a percent or a price, from a named source.\n\nOpening with a precise number lifted median likes 17%. Opening with a question cut them 28%. Same idea, different first line.\n\nSo before you post, read your first line. If there is no number in it, find the one fact you can count.\n\nSource: LinkPost study of 438,413 posts, Jul 2026 — https://www.linkpost.gg/en/playbooks/linkedin-algorithm-playbook-2026/study\n\nToday, rewrite the first line of your next post so it starts with a number you can source.",
+  "action": "rewrite the first line of your next post so it starts with a number you can source",
+  "second_comment": "The same study found the question opener is the one most people reach for first. It cut median likes 28%.",
+  "card": {
+    "type": "stat",
+    "label": "Top-1% posts with a number up front",
+    "value": "61%",
+    "body": "From 438,413 posts. A count, a percent or a price, from a named source, in the first two lines.",
+    "alt": "Card reading 61%: the share of top 1% LinkedIn posts that put a sourced number in the first two lines, from a study of 438,413 posts."
+  }
+}

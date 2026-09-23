@@ -1,0 +1,11 @@
+{
+  "slug": "fixture-card-riso",
+  "template": "riso",
+  "pages": [
+    {
+      "page": 1,
+      "type": "stat",
+      "problems": []
+    }
+  ]
+}

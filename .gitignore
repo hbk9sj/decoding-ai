@@ -4,3 +4,5 @@ node_modules/
 posts/*/p[0-9][0-9].jpg
 posts/*/carousel.pdf
 posts/*/thumb.png
+posts/*/card.png
+render/fixtures/card-*/p01.jpg

@@ -5,7 +5,7 @@
 <body>
 <div id="mount"></div>
 <script>
-// One page of one carousel. ?post=posts/<folder>&page=<1-based>
+// One page of one carousel, or a text post's card. ?post=posts/<folder>&page=<1-based>
 // Deterministic: all jitter comes from a seeded PRNG keyed on slug+page.
 const qs = new URLSearchParams(location.search);
 const postDir = qs.get('post'), pageNo = parseInt(qs.get('page') || '1', 10);
@@ -71,7 +71,7 @@ const deco = {
 function head(copy, i, n, tpl) {
   const left = i === 1 ? (copy.kicker || 'DECODING AI') : (copy.section || copy.kicker || 'DECODING AI');
   return `<div class="row" data-box="text" style="justify-content:space-between;align-items:baseline">
-    <div class="kicker">${esc(left)}</div><div class="folio">${i} / ${n}</div></div>`;
+    <div class="kicker">${esc(left)}</div>${n > 1 ? `<div class="folio">${i} / ${n}</div>` : ''}</div>`;
 }
 function foot(copy, i, n, tpl) {
   const src = copy.source ? `${copy.source.publisher}${copy.source.date ? ', ' + copy.source.date : ''}` : '';
@@ -160,7 +160,8 @@ const bodies = {
 
 (async function () {
   const copy = await (await fetch(`/${postDir}/copy.json`)).json();
-  const pages = copy.pages, p = pages[pageNo - 1], tpl = copy.template || 'broadsheet';
+  // a text post's card is a one-page render of the same page types
+  const pages = copy.kind === 'text' ? [copy.card] : copy.pages, p = pages[pageNo - 1], tpl = copy.template || 'broadsheet';
   const r = mulberry(hash((copy.slug || 'x') + ':' + pageNo));
   const { top, bottom } = (bodies[p.type] || bodies.point)(p, copy, tpl, r);
   const grainOp = { broadsheet: .085, riso: .07, field: .06, memo: .13 }[tpl];

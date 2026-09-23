@@ -27,12 +27,18 @@ relationship graph to an interest graph). Wandering off these three splits your 
 
 ## The week
 
-| Slot | Day (IST) | Kind | Pillar |
+| Slot | Goes live (IST) | Kind | Pillar |
 |---|---|---|---|
-| tue | Tue 09:15 | carousel | decoded |
-| wed | Wed 09:15 | text | tried |
-| thu | Thu 09:15 | carousel | belief |
-| sat | Sat 10:30 | text or carousel | newsjack — the week's biggest story, only if it broke in the last 48 h |
+| mon | Mon 08:00 | text + card | newsjack — the week's biggest story, only if it broke in the last 72 h; otherwise skip |
+| tue | Tue 08:00 | text + card | decoded |
+| wed | Wed 08:00 | text + card | tried |
+| thu | Thu 08:00 | carousel, 7–10 pages | belief |
+
+`due_at` is always 02:30 UTC on the slot's day. The routine runs about two hours before.
+08:00 IST is the best-measured hour for Indian posts and Monday 08:00–09:00 the best slot;
+weekends drop by about two thirds (MagicPost, 220,220 Indian posts). The worker keeps 12 h
+between posts, so two a day is allowed (Suraj, 23 Sep 2026, for the growth phase): a clash
+moves the post 12 h on, to 20:00 IST or the next morning, and says so.
 
 Four a week is the measured sweet spot for a profile (3–5; seven a week cut reach per post
 27 % and engagement 23 %). Hold this for six weeks before changing anything. **Skip a slot
@@ -66,7 +72,13 @@ reference: a checklist, a comparison, the five words that make a prompt work.
 **Never ask for engagement out loud.** "Comment GUIDE and I'll DM you" is actively
 suppressed in 2026. Invite a reply by leaving a real question open, not by instructing.
 
-**Links cost ~60 % of reach.** The URL goes in `first_comment`, never in the body.
+**The source goes on the last line of the body, as plain text.** Exactly one URL, the
+source's, on a line of its own: `Source: <who>, <when> — <url>`. It costs something (−16 %
+to −27 % per the 2026 studies), but the expensive thing is the *preview card*: median 414
+impressions with a card against 858 with a plain URL (566,957 posts). The worker never
+sends a card and reads the post back to prove it. There is no first comment: Buffer Free
+refuses one, LinkedIn hides link comments under "Most relevant" up to 80 % of the time, and
+LinkedIn's 2026 rules call comments posted by a script automated and not allowed.
 **Hashtags**: zero to two. Eleven-plus hashtags measured 448 impressions against 6,619
 with none.
 
@@ -76,10 +88,10 @@ lines between blocks, one idea per block.
 **Length.** 400–1,300 characters for a text post. 34 % of top posts are now under 600
 characters — sharper, not longer. A carousel caption may run to the upper end.
 
-**Formats.** Document carousels are the highest-engagement format on the platform
-(6.6–7.0 % against ~2–4.5 % for text) and only about 5 % of creators post them. Text posts
-with a real opinion still compound fastest for a small account, which is why the week
-carries both. **Never post an AI-looking infographic**: polished AI graphics measure
+**Formats.** Under 5,000 followers, single images carry the most reach; documents only
+lead above 20,000 (AuthoredUp, 372,812 posts). So every text post carries one card — a
+`stat` or `contrast` page in the week's look — and the week holds one carousel, kept to
+7–10 pages because small accounts finish shorter decks. **Never post an AI-looking infographic**: polished AI graphics measure
 0.6–1.1× a plain text post — worse than nothing. Our carousels are editorial print looks
 for exactly this reason.
 
@@ -87,7 +99,10 @@ for exactly this reason.
 
 ## How to write each post
 
-1. **Find the story.** Exa search, last 7 days (last 48 h for the Saturday newsjack). Read
+0. **Read what worked.** `state/metrics.json` (Buffer's numbers for every post in the
+   last 30 days) and `state/manual.csv` (carousel numbers and follower count, entered by
+   hand). Two posts in a row above the average in one pillar or look: lean into it.
+1. **Find the story.** Exa search, last 7 days (last 72 h for the Monday newsjack). Read
    the primary source — the lab's own post, the paper, the docs, the filing. Not a
    summary of a summary.
 2. **Build the evidence sheet before any prose.** For each claim: the exact sentence from
@@ -95,29 +110,44 @@ for exactly this reason.
    number is not in the source text, it does not go in the post. Ever.
 3. **Check `state/done.json`.** If the topic, the hook shape, or the opening words repeat
    anything from the last 30 posts, pick something else.
-4. **Write the post** to the shape below.
-5. **Lint and render.** `node tools/lint_text.mjs <folder>`; carousels also
-   `node tools/render.mjs <folder>`. Fix what it reports. Never edit the gate to pass.
-6. **Commit the folder and push.** The Actions worker picks it up and queues Buffer.
+4. **Write the post** to the shape below. A "tried" post saves what it measured —
+   command output, files, screenshots — under `posts/<folder>/evidence/` and lists them
+   in `evidence`. No evidence, no post.
+5. **Roster picks** — only if `roster.md` says `status: approved`. Exa, last 48 h: three to
+   five posts by people on the roster, on this post's topic, each with one line on what
+   Suraj could add. They go in `roster_picks` and arrive in the Slack alert.
+6. **Lint and render.** `node tools/lint_text.mjs <folder>` and
+   `node tools/render.mjs <folder>` (the carousel, or the text post's card). Fix what they
+   report, and look at `sheet.jpg`. Never edit the gate to pass.
+7. **Commit only** `copy.json`, `job.json`, `sheet.jpg` and `evidence/`, and push. The
+   Actions worker picks it up, queues Buffer and sends the Slack alerts.
 
 ### Text post — `copy.json`
 
 ```json
 {
-  "kind": "text", "pillar": "tried", "slug": "2026-09-30-claude-code-hooks",
-  "topic": "one line, for the dedupe check",
-  "body": "hook line\n\nblock\n\nblock\n\naction line",
+  "kind": "text", "pillar": "tried", "template": "field", "slug": "2026-09-30-claude-code-hooks",
+  "topic": "one line, for the dedupe check", "kicker": "Tried it", "handle": "Decoding AI",
+  "body": "hook line\n\nblock\n\nblock\n\naction line\n\nSource: <publisher>, <date> — <url>",
   "action": "the one thing the reader can do today (must appear in body)",
-  "first_comment": "Source: <publisher>, <date> — <url>",
-  "source": { "title": "", "publisher": "", "date": "", "url": "" }
+  "source": { "title": "", "publisher": "", "date": "", "url": "" },
+  "card": { "type": "stat", "label": "", "value": "", "body": "", "alt": "40–400 chars describing the card" },
+  "second_comment": "optional, under 600 chars, no URL, no number the post, card or evidence does not carry",
+  "evidence": ["evidence/output.txt"],
+  "roster_picks": [{ "author": "", "url": "", "angle": "" }]
 }
 ```
+
+`card.type` is `stat` (`label`, `value` ≤ 9 chars, `body` ≤ 34 words) or `contrast`
+(`headline`, `leftLabel`, `left`, `rightLabel`, `right`). Every number on the card must
+appear in the body. `evidence` is required for `tried`; `roster_picks` is optional.
+Never include `first_comment` — the gate refuses it.
 
 ### Carousel — `copy.json`
 
 Same top-level fields, plus `template` (broadsheet | riso | field | memo — rotate, never
 the same look twice running), `title` (≤ 70 chars, shown as a label in the feed — treat it
-as a second hook), `kicker`, `issue`, and `pages`: 8–10 of them.
+as a second hook), `kicker`, `issue`, and `pages`: 7–10 of them. No `card`.
 
 Page types and their word budgets are enforced by the renderer:
 `cover` (headline ≤ 12 words, deck ≤ 26) → `stat` / `point` / `contrast` / `quote`
@@ -136,17 +166,19 @@ either duplicates a live post or sits ignored; neither is worth a run.
 
 - Post a number, date or benchmark that is not in the source it quotes.
 - Reuse a hook, an opening line, or a topic from `state/done.json`.
-- Put a link in the body, ask for comments, or use more than two hashtags.
+- Put any URL in the body except the source line, set a `first_comment`, ask for
+  comments, or use more than two hashtags.
 - Post when a gate fails, or edit a gate so a post can pass.
 - Post more than one item per run, or spend any generation credit.
 - Claim a first-person test in a "tried it" post that the session did not actually run.
 
 ## What only Suraj can do
 
-The four hours after publishing carry 10–14× the reach of posting and leaving. `run.md`
-prints the checklist with every queued post: comment on five posts in the cluster before
-it lands, reply to every comment inside 30 minutes, add two comments of your own within
-two hours, repost yourself once at four to six hours, never twice.
+The four hours after publishing carry 10–14× the reach of posting and leaving. Slack
+carries the checklist: the *Queued* alert (with the roster picks to comment on in the hour
+before), the *Live* alert (the link and the `second_comment` to post by hand), and a
+*Failed* alert if anything breaks. Reply to every comment inside 30 minutes; repost once at
+four to six hours, never twice. On Mondays the scoreboard asks for the carousel numbers.
 
 ## Sources for the rules above
 
@@ -155,5 +187,8 @@ formats, nurturing and infographics · Socialinsider 2026 benchmarks (1.3M posts
 LinkPost playbook and post-structure study (438,413 posts; top-1 % tactic breakdown) ·
 Ordinal (219k posts) on cadence and hashtags · SocialNexis cadence data · Mylance (895
 posts) on specificity and emotional pull · RevUp Studio on post anatomy · Buffer's own
-AI-content experiment. Gathered 22 Sep 2026; numbers differ between studies, the direction
-does not.
+AI-content experiment. Gathered 22 Sep 2026. Re-checked 23 Sep 2026: Kliver/MagicPost
+(566,957 posts) on preview cards vs plain URLs · van der Blom (Jul 2026) on hidden link
+comments · Metricool on the link cost for personal profiles · AuthoredUp (372,812 posts) on
+formats by follower count · MagicPost (220,220 Indian posts) on timing · LinkedIn's own 2026
+statement on automated comments. Numbers differ between studies, the direction does not.
