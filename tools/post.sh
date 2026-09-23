@@ -112,13 +112,15 @@ id=$(jq -r '.data.createPost.post.id // empty' <<<"$resp")
 [ -n "$id" ] || { echo "Buffer refused: $(jq -c '.data.createPost.message // .errors' <<<"$resp")" >&2; exit 1; }
 
 # 4. read it back: what Buffer stored is what LinkedIn gets
-back=$(q 'query($id: PostId!){ post(input:{id:$id}){ id status dueAt text assets { __typename ... on ImageAsset { source image { altText } } ... on DocumentAsset { url title } } metadata { ... on LinkedInPostMetadata { firstComment linkAttachment { url } } } } }' "$(jq -cn --arg id "$id" '{id:$id}')")
+back=$(q 'query($id: PostId!){ post(input:{id:$id}){ id status dueAt text assets { __typename ... on ImageAsset { source image { altText } } ... on DocumentAsset { source } } metadata { ... on LinkedInPostMetadata { firstComment linkAttachment { url } } } } }' "$(jq -cn --arg id "$id" '{id:$id}')")
 wrong=""
-[ "$(jq -r '.data.post.text' <<<"$back")" = "$text" ] || wrong="$wrong; the stored text differs from copy.json"
-jq -r '.data.post.text' <<<"$back" | tail -1 | grep -qF -- "$src" || wrong="$wrong; the source URL is not on the stored last line"
+# a read-back that could not run is a refusal, not a pass: nothing was checked
+jq -e '.data.post.id' <<<"$back" >/dev/null 2>&1 || wrong="; the read-back query failed: $(jq -c '.errors // .' <<<"$back" 2>/dev/null | head -c 400)"
+[ -n "$wrong" ] || [ "$(jq -r '.data.post.text' <<<"$back")" = "$text" ] || wrong="$wrong; the stored text differs from copy.json"
+[ -n "$wrong" ] || jq -r '.data.post.text' <<<"$back" | tail -1 | grep -qF -- "$src" || wrong="$wrong; the source URL is not on the stored last line"
 [ "$(jq -r '.data.post.metadata.linkAttachment.url // empty' <<<"$back")" = "" ] || wrong="$wrong; Buffer attached a link card"
 [ "$(jq -r '.data.post.metadata.firstComment // empty' <<<"$back")" = "" ] || wrong="$wrong; a first comment is set"
-if [ "$kind" = "text" ]; then
+if [ "$kind" = "text" ] && ! grep -q 'read-back query failed' <<<"$wrong"; then
   [ "$(jq -r '[.data.post.assets[] | select(.__typename == "ImageAsset")] | length' <<<"$back")" = "1" ] || wrong="$wrong; no image asset"
   [ "$(jq -r '[.data.post.assets[] | select(.__typename == "ImageAsset")][0].image.altText // empty' <<<"$back")" = "$(jq -r '.card.alt' "$dir/copy.json")" ] || wrong="$wrong; the image alt text did not survive"
 fi
