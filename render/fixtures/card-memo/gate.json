@@ -1,0 +1,11 @@
+{
+  "slug": "fixture-card-memo",
+  "template": "memo",
+  "pages": [
+    {
+      "page": 1,
+      "type": "stat",
+      "problems": []
+    }
+  ]
+}

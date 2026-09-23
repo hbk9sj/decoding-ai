@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Render one carousel folder to PNG pages + a LinkedIn document PDF, and GATE it.
+// A text post (kind "text") renders its card instead: one page, same gate, card.png.
 //   node tools/render.mjs <folder>       (folder holds copy.json)
-// Exit 0: every page clean, PDF written.  2: gate failed.  3: Playwright missing.  1: other.
+// Exit 0: every page clean, PDF or card written.  2: gate failed.  3: Playwright missing.  1: other.
 import { createServer } from 'node:http';
 import { readFile, writeFile, stat } from 'node:fs/promises';
 import { resolve, join, extname } from 'node:path';
@@ -24,13 +25,19 @@ const pre = [];
 const TPL = ['broadsheet', 'riso', 'field', 'memo'];
 if (!TPL.includes(copy.template)) pre.push(`template must be one of ${TPL.join(', ')} (got ${copy.template})`);
 if (!copy.slug) pre.push('slug missing');
-if (!copy.title || copy.title.length > 70) pre.push('title missing or over 70 chars (it is the second hook in the feed)');
 if (!copy.source?.url || !copy.source?.publisher) pre.push('source.url and source.publisher are required');
-const pages = copy.pages || [];
-if (pages.length < 8 || pages.length > 10) pre.push(`pages must be 8–10 (got ${pages.length}); completion rate feeds reach`);
-if (pages[0]?.type !== 'cover') pre.push('page 1 must be the cover (the hook)');
-if (pages.at(-1)?.type !== 'cta') pre.push('last page must be the cta');
-if (!pages.some(p => p.type === 'takeaway')) pre.push('one takeaway page ("do this today") is required');
+const card = copy.kind === 'text';
+const pages = card ? (copy.card ? [copy.card] : []) : copy.pages || [];
+if (card) {
+  if (!['stat', 'contrast'].includes(copy.card?.type)) pre.push('card.type must be stat or contrast');
+} else {
+  if (!copy.title || copy.title.length > 70) pre.push('title missing or over 70 chars (it is the second hook in the feed)');
+  // 7–10: small accounts finish shorter decks; completion rate feeds reach
+  if (pages.length < 7 || pages.length > 10) pre.push(`pages must be 7–10 (got ${pages.length}); completion rate feeds reach`);
+  if (pages[0]?.type !== 'cover') pre.push('page 1 must be the cover (the hook)');
+  if (pages.at(-1)?.type !== 'cta') pre.push('last page must be the cta');
+  if (!pages.some(p => p.type === 'takeaway')) pre.push('one takeaway page ("do this today") is required');
+}
 const limits = {
   cover: p => [[words(p.headline) <= 12, 'cover.headline ≤ 12 words'], [words(p.deck) <= 26, 'cover.deck ≤ 26 words']],
   point: p => [[words(p.headline) <= 9, 'point.headline ≤ 9 words'], [words(p.body) <= 38, 'point.body ≤ 38 words'], [!p.note || words(p.note) <= 8, 'point.note ≤ 8 words']],
@@ -136,6 +143,22 @@ await writeFile(join(dir, 'gate.json'), JSON.stringify(report, null, 2));
 
 const bad = report.pages.filter(p => p.problems.length);
 if (bad.length) fail(bad.flatMap(p => p.problems.map(x => `page ${p.page}: ${x}`)));
+
+// ---- 4b. a card: one PNG at feed size, plus the review sheet ----
+if (card) {
+  const b = await chromium.launch();
+  const pg = await (await b.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1 })).newPage();
+  await pg.setContent(`<body style="margin:0"><img src="data:image/jpeg;base64,${(await readFile(pngs[0])).toString('base64')}" style="width:${W}px;height:${H}px;display:block"></body>`);
+  await pg.screenshot({ path: join(dir, 'card.png') });
+  await pg.setViewportSize({ width: 540, height: 675 });
+  await pg.setContent(`<body style="margin:0"><img src="data:image/jpeg;base64,${(await readFile(pngs[0])).toString('base64')}" style="width:540px;height:675px;display:block"></body>`);
+  await pg.screenshot({ path: join(dir, 'sheet.jpg'), type: 'jpeg', quality: 82 });
+  await b.close();
+  const mb = (await stat(join(dir, 'card.png'))).size / 1e6;
+  if (mb > 5) fail([`card.png is ${mb.toFixed(1)} MB — keep it under 5 MB`]);
+  console.log(`rendered card · ${totalChecks}/${totalChecks} text checks clean · png ${mb.toFixed(2)} MB · ${rel}/card.png`);
+  process.exit(0);
+}
 
 // ---- 5. assemble the PDF and gate the file ----
 const pdf = await PDFDocument.create();

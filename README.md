@@ -7,24 +7,35 @@ GitHub Actions queues it in Buffer.
 - `BRIEF.md` — what the routine reads before it writes. The rules, and the measured
   evidence for each one.
 - `render/` — four editorial slide looks (broadsheet, riso, field notes, memo), the fonts
-  they are set in, and `page.html`, which draws one page of one carousel.
-- `render/fixtures/` — one worked carousel per look, used to prove the templates still
-  render (they are the gallery and the regression test).
-- `tools/render.mjs` — renders a carousel to PNG pages and a 1080×1350 PDF, and gates it:
-  word budgets, safe area, overlap, contrast, minimum type size, font fallback, page size,
-  file size.
-- `tools/lint_text.mjs` — the text-post contract (hook, length, links, hashtags, banned
-  phrases, reading level, action line, source).
-- `tools/post.sh` — publishes the PDF to the `assets` branch, waits for the raw URL, then
-  creates the Buffer post. Refuses if the channel is disconnected or the plan's
-  scheduled-post cap is nearly full.
-- `.github/workflows/publish.yml` — picks up any `posts/<folder>` that has a `copy.json`
-  and no `run.md`, runs the job, commits the record back.
+  they are set in, and `page.html`, which draws one page of one carousel, or a text
+  post's card.
+- `render/fixtures/` — one worked carousel and one card per look, used to prove the
+  templates still render (they are the gallery and the regression test).
+- `tools/render.mjs` — renders a carousel to PNG pages and a 1080×1350 PDF, or a text
+  post's card to `card.png`, and gates it: word budgets, safe area, overlap, contrast,
+  minimum type size, font fallback, page size, file size.
+- `tools/lint_text.mjs` — the post contract (hook, length, the source line as the only
+  URL, hashtags, banned phrases, reading level, action line, the card, evidence for
+  "tried", the second comment). `tools/test/refuse/` holds one post per rule that it must
+  refuse.
+- `tools/post.sh` — publishes the PDF or card to the `assets` branch, waits for the raw
+  URL, spaces the post 24 h from any other, creates the Buffer post, then reads it back.
+  Refuses if the channel is disconnected, link shortening is on, or the scheduled-post
+  cap is full; deletes the post if Buffer changed the text or attached a link card.
+- `tools/spacing.mjs` — the 24-hour rule (unit tests in `tools/test/`).
+- `tools/slack.sh`, `tools/live_check.sh`, `tools/metrics.sh` — the Queued, Live and
+  Failed alerts, and the daily numbers in `state/metrics.json` (Monday scoreboard).
+  Carousel numbers and follower count go in `state/manual.csv` by hand.
+- `.github/workflows/publish.yml` — every 30 min: picks up any `posts/<folder>` that has a
+  `copy.json` and no `run.md`, runs the job, checks whether queued posts went live, and
+  commits the record back. `metrics.yml` runs daily at 07:00 IST.
+- `roster.md` — the creators to comment on before each post (used once approved).
+  `PROFILE.md` — the one-time profile checklist.
 
 ## Verify
 
 ```bash
-cd tools && npm ci && npx playwright install chromium
+(cd tools && npm ci && npx playwright install chromium)
 bash tools/verify.sh        # must end "0 failure(s)"
 ```
 
@@ -39,5 +50,9 @@ week uses four of the ten, so the cap is not a constraint in practice.
 
 ## Secrets (Actions, and the routine's environment)
 
-`BUFFER_ACCESS_TOKEN`, `BUFFER_CHANNEL_ID`, `BUFFER_ORGANIZATION_ID`. Nothing else, and
-none of them in the repo.
+`BUFFER_ACCESS_TOKEN`, `BUFFER_CHANNEL_ID`, `BUFFER_ORGANIZATION_ID`, and
+`SLACK_WEBHOOK_URL` (Actions only; without it the alerts are skipped with a warning and
+posting carries on). None of them in the repo.
+
+A live end-to-end check that never reaches LinkedIn: a folder whose `job.json` is
+`{"smoke": true}` is queued as a draft, read back, and deleted.

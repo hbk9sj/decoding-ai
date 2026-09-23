@@ -1,0 +1,11 @@
+{
+  "slug": "fixture-card-broadsheet",
+  "template": "broadsheet",
+  "pages": [
+    {
+      "page": 1,
+      "type": "contrast",
+      "problems": []
+    }
+  ]
+}
