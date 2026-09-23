@@ -1,0 +1,29 @@
+{
+  "kind": "text",
+  "pillar": "tried",
+  "template": "field",
+  "slug": "fixture-card-field",
+  "topic": "fixture — card proof, tried pillar with evidence",
+  "kicker": "Tried it",
+  "handle": "Decoding AI",
+  "source": {
+    "title": "bytes.txt (measured with wc -c)",
+    "publisher": "Decoding AI test log",
+    "date": "23 Sep 2026",
+    "url": "https://github.com/hbk9sj/decoding-ai/blob/main/render/fixtures/card-field/evidence/bytes.txt"
+  },
+  "body": "I saved the same 5-row table twice. As CSV it took 100 bytes. As JSON it took 399.\n\nSame rows, same numbers. JSON repeats every column name on every row, so the cost grows with each row you add.\n\nI measured it with one command, wc -c, on both files. The files and the output are in the repo, so you can run it yourself.\n\nIf you paste tables into a chat model, the format you pick is part of the bill.\n\nToday, take one table you paste into AI often and save it as CSV before you paste it.\n\nSource: Decoding AI test log, 23 Sep 2026 — https://github.com/hbk9sj/decoding-ai/blob/main/render/fixtures/card-field/evidence/bytes.txt",
+  "action": "take one table you paste into AI often and save it as CSV before you paste it",
+  "evidence": [
+    "evidence/table.csv",
+    "evidence/table.json",
+    "evidence/bytes.txt"
+  ],
+  "card": {
+    "type": "stat",
+    "label": "Same 5-row table, JSON vs CSV",
+    "value": "399 B",
+    "body": "As CSV it took 100 bytes. JSON repeats every column name on every row.",
+    "alt": "Card reading 399 B: the size of a 5-row table saved as JSON, against 100 bytes for the same table saved as CSV."
+  }
+}
