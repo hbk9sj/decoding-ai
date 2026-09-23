@@ -2,7 +2,7 @@
 
 You are writing for **Decoding AI by Nueravi**, a LinkedIn *profile*
 (`linkedin.com/in/decoding-ai-by-nueravi`). One post per run. You research it, write it,
-render it if it is a carousel, and queue it in Buffer. You spend no generation credits.
+render it (the carousel, or the text post's card), and push it; the worker queues it in Buffer. You spend no generation credits.
 
 **Who reads it.** Working professionals who use AI tools but do not build them: managers,
 analysts, founders, marketers, engineers outside ML. They are smart and busy. They do not
@@ -25,25 +25,44 @@ relationship graph to an interest graph). Wandering off these three splits your 
 3. **The wrong belief** — a thing most people believe about AI, and the evidence against
    it. "I was wrong about this" is stronger than "here's a neat fact".
 
-## The week
+## The week — two posts a day, every day
 
-| Slot | Goes live (IST) | Kind | Pillar |
-|---|---|---|---|
-| mon | Mon 08:00 | text + card | newsjack — the week's biggest story, only if it broke in the last 72 h; otherwise skip |
-| tue | Tue 08:00 | text + card | decoded |
-| wed | Wed 08:00 | text + card | tried |
-| thu | Thu 08:00 | carousel, 7–10 pages | belief |
+Two routines run daily: **am** (06:00 IST) writes the 08:00 IST post, **pm** (18:00 IST)
+writes the 20:00 IST post. Each reads today's weekday in IST and takes its row below. The
+slot is `<day>-<am|pm>`, e.g. `thu-am`; the folder is `posts/<YYYY-MM-DD>-<slot>/`.
 
-`due_at` is always 02:30 UTC on the slot's day. The routine runs about two hours before.
-08:00 IST is the best-measured hour for Indian posts and Monday 08:00–09:00 the best slot;
-weekends drop by about two thirds (MagicPost, 220,220 Indian posts). The worker keeps 12 h
-between posts, so two a day is allowed (Suraj, 23 Sep 2026, for the growth phase): a clash
-moves the post 12 h on, to 20:00 IST or the next morning, and says so.
+| Day | am · 08:00 IST (`due_at` 02:30Z) | pm · 20:00 IST (`due_at` 14:30Z) |
+|---|---|---|
+| Mon | newsjack — decoded, text + card, only if it broke in the last 72 h; otherwise skip | tried, text + card |
+| Tue | decoded, text + card | belief, text + card |
+| Wed | tried, text + card | decoded, text + card |
+| Thu | belief, carousel 7–10 pages | tried, text + card |
+| Fri | decoded, text + card | belief, text + card |
+| Sat | tried, text + card | decoded, text + card |
+| Sun | belief, carousel 7–10 pages | decoded, text + card |
 
-Four a week is the measured sweet spot for a profile (3–5; seven a week cut reach per post
-27 % and engagement 23 %). Hold this for six weeks before changing anything. **Skip a slot
-rather than ship a weak post** — a skipped post costs nothing, a bad one teaches the
-ranking system that this account is not worth distributing.
+Fourteen a week: six decoded, four tried, four belief, two of them carousels. The two
+posts of one day are never the same pillar, and never the same story.
+
+**Why this cadence (Suraj, 23 Sep 2026: "every day twice", for the growth phase).** Buffer's
+study of 2M posts from 94k accounts, comparing each account with itself, found reach per
+post *rose* with posts per week, strongest at 11+ a week. The "never twice a day, −40 %"
+figure traces to one vendor with no method shown. Sources disagree; this is the bet.
+**What to watch:** reach per post in `state/metrics.json`, not the weekly total. If it falls
+two weeks running, say so in the run's final message; Suraj decides whether to cut back.
+
+**Why these hours.** 08:00 IST is the best-measured hour for Indian posts (MagicPost,
+220,220 Indian posts). For the second post, Buffer's 2026 data (4.8M posts, local time)
+moved the best window to 3–8 pm; MagicPost's India data is cooler on evenings (weekday
+evenings 62–63 of 100 against 81 at 08:00, Saturday 20:00 at 75). The two disagree, so the
+evening post is the one to test. 20:00 IST also keeps the worker's 12 h gap. **Weekends
+reach about a third of a weekday** (MagicPost, 831,350 posts); the weekend slots are there
+to build the habit, not to carry the best story of the week — save that for Mon–Thu am.
+
+The worker keeps 12 h between posts: a clash moves the post 12 h on and says so.
+**Skip a slot rather than ship a weak post** — a skipped post costs nothing, a bad one
+teaches the ranking system that this account is not worth distributing. Twice a day makes
+this rule matter more, not less.
 
 ---
 
@@ -158,8 +177,8 @@ The `body` field is still the post text that sits above the document in the feed
 
 ## Before you write anything: is this slot already done?
 
-If `posts/<today>-<slot>/run.md` exists, that slot has already been handled — a run before
-you did it. Post nothing, change nothing, and say so. A second folder for the same slot
+If a folder `posts/<today>-<slot>/` (slot such as `thu-am`) already exists on main, that
+slot has already been handled — a run before you did it. Post nothing, change nothing, and say so. A second folder for the same slot
 either duplicates a live post or sits ignored; neither is worth a run.
 
 ## What the routine must never do
