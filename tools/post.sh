@@ -96,12 +96,12 @@ due=$(jq -r '.due_at // empty' "$dir/job.json" 2>/dev/null)
 # instead" - Buffer, checked 22 Sep 2026), so the human gate is a draft, not a reminder.
 if [ "$mode" = "--draft" ]; then extra='{"saveToDraft":true,"schedulingType":"automatic","mode":"addToQueue"}'
 else
-  # 24 h between posts: every scheduled or sent post from a day before to 8 days after
+  # 12 h between posts: every scheduled or sent post from a day before to 8 days after
   span=$(python3 -c 'import sys,datetime as d; t=d.datetime.fromisoformat(sys.argv[1].replace("Z","+00:00")); f=lambda x: x.strftime("%Y-%m-%dT%H:%M:%SZ"); print(f(t-d.timedelta(hours=24)), f(t+d.timedelta(days=8)))' "$due")
   taken=$(q 'query($o: OrganizationId!, $c: ChannelId!, $s: DateTime!, $e: DateTime!){ posts(first:50, input:{organizationId:$o, filter:{channelIds:[$c], status:[scheduled,needs_approval,sending,sent], dueAt:{start:$s, end:$e}}}){ edges { node { dueAt } } } }' \
     "$(jq -cn --arg o "$BUFFER_ORGANIZATION_ID" --arg c "$BUFFER_CHANNEL_ID" --arg s "${span% *}" --arg e "${span#* }" '{o:$o,c:$c,s:$s,e:$e}')" \
     | jq -c '[.data.posts.edges[].node.dueAt | select(. != null)]')
-  due=$(node "$ROOT/tools/spacing.mjs" "$due" "$taken") || { echo "spacing: no clear day within 7 days of the slot" >&2; exit 2; }
+  due=$(node "$ROOT/tools/spacing.mjs" "$due" "$taken") || { echo "spacing: no clear 12 h slot within 7 days of the slot" >&2; exit 2; }
   extra=$(jq -cn --arg due "$due" '{schedulingType:"automatic", mode:"customScheduled", dueAt:$due}')
 fi
 vars=$(jq -cn --arg ch "$BUFFER_CHANNEL_ID" --arg text "$text" --argjson assets "$assets" --argjson extra "$extra" \

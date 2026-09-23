@@ -36,8 +36,9 @@ relationship graph to an interest graph). Wandering off these three splits your 
 
 `due_at` is always 02:30 UTC on the slot's day. The routine runs about two hours before.
 08:00 IST is the best-measured hour for Indian posts and Monday 08:00–09:00 the best slot;
-weekends drop by about two thirds (MagicPost, 220,220 Indian posts). The worker keeps 24 h
-between posts: a clash moves the post to the same time on the next clear day and says so.
+weekends drop by about two thirds (MagicPost, 220,220 Indian posts). The worker keeps 12 h
+between posts, so two a day is allowed (Suraj, 23 Sep 2026, for the growth phase): a clash
+moves the post 12 h on, to 20:00 IST or the next morning, and says so.
 
 Four a week is the measured sweet spot for a profile (3–5; seven a week cut reach per post
 27 % and engagement 23 %). Hold this for six weeks before changing anything. **Skip a slot

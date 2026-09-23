@@ -19,10 +19,10 @@ GitHub Actions queues it in Buffer.
   "tried", the second comment). `tools/test/refuse/` holds one post per rule that it must
   refuse.
 - `tools/post.sh` — publishes the PDF or card to the `assets` branch, waits for the raw
-  URL, spaces the post 24 h from any other, creates the Buffer post, then reads it back.
+  URL, spaces the post 12 h from any other (two a day at most), creates the Buffer post, then reads it back.
   Refuses if the channel is disconnected, link shortening is on, or the scheduled-post
   cap is full; deletes the post if Buffer changed the text or attached a link card.
-- `tools/spacing.mjs` — the 24-hour rule (unit tests in `tools/test/`).
+- `tools/spacing.mjs` — the 12-hour rule (unit tests in `tools/test/`).
 - `tools/slack.sh`, `tools/live_check.sh`, `tools/metrics.sh` — the Queued, Live and
   Failed alerts, and the daily numbers in `state/metrics.json` (Monday scoreboard).
   Carousel numbers and follower count go in `state/manual.csv` by hand.
