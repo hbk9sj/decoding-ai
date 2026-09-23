@@ -27,8 +27,8 @@ The pipeline works with any of the three; only the channel secret changes.
       Followers). Not checked in 2026; if the option is gone, skip it.
 - [ ] Headline: who it is for and what they get, e.g. "Decoding AI for people who use it
       at work · plain English, a named source, one thing to do".
-- [ ] About: the promise from `BRIEF.md` in three short lines, then the four slots
-      (Mon news, Tue decoded, Wed tried, Thu belief).
+- [ ] About: the promise from `BRIEF.md` in three short lines, then the rhythm
+      (two posts a day, 08:00 and 20:00 IST: news decoded, tools tried, beliefs tested).
 - [ ] Featured: pin the best-performing carousel (see `state/metrics.json` and
       `state/manual.csv`), and replace it when a better one lands.
 
