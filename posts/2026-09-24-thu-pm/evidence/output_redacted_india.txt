@@ -1,0 +1,16 @@
+Hi team,
+
+Please update the KYC file for <PERSON> before <DATE_TIME>.
+Her Aadhaar is <IN_AADHAAR> and her PAN is <IN_PAN>.
+Date of birth: <DATE_TIME>.
+Mobile: <PHONE_NUMBER>. Personal email: <EMAIL_ADDRESS>.
+She pays by UPI to priya.r@<IN_PAN>.
+Refund the duplicate charge to card <CREDIT_CARD>.
+Bank account <US_BANK_NUMBER>, IFSC HDFC0001234.
+Address: Flat 4B, <LOCATION>, 12th Main Road, <LOCATION>, <LOCATION> <US_DRIVER_LICENSE>.
+Her car, <IN_VEHICLE_REGISTRATION>, is in the office parking.
+Passport number: <IN_PASSPORT>.
+She logged in from <DATE_TIME>.
+
+Thanks,
+<PERSON>

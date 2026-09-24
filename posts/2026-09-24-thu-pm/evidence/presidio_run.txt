@@ -1,0 +1,23 @@
+presidio-analyzer  spacy 3.8.16
+recognizers loaded: ['CreditCardRecognizer', 'CryptoRecognizer', 'DateRecognizer', 'EmailRecognizer', 'IbanRecognizer', 'IpRecognizer', 'MacAddressRecognizer', 'MedicalLicenseRecognizer', 'NhsRecognizer', 'PhoneRecognizer', 'SpacyRecognizer', 'UrlRecognizer', 'UsBankRecognizer', 'UsItinRecognizer', 'UsLicenseRecognizer', 'UsPassportRecognizer', 'UsSsnRecognizer']
+engine load: 4.15 s   analyze: 342 ms
+PERSON                 0.85  'Priya Raghunathan'
+DATE_TIME              0.85  'Friday'
+DATE_TIME              0.85  '4829 1736 5048'
+DATE_TIME              0.95  '14/03/1989'
+PHONE_NUMBER           0.75  '+91 98450 31277'
+EMAIL_ADDRESS          1.00  'priya.r1989@gmail.com'
+US_DRIVER_LICENSE      0.30  'r1989'
+URL                    0.50  'gmail.com'
+CREDIT_CARD            1.00  '4111 1111 1111 1111'
+US_BANK_NUMBER         0.40  '50100234567812'
+US_DRIVER_LICENSE      0.01  '50100234567812'
+LOCATION               0.85  'Lakeview Apartments'
+LOCATION               0.85  'Indiranagar'
+LOCATION               0.85  'Bengaluru'
+US_DRIVER_LICENSE      0.01  '560038'
+PERSON                 0.85  'KA05MN4821'
+US_DRIVER_LICENSE      0.30  'M4827193'
+DATE_TIME              0.85  '103.21.58.144 last night'
+IP_ADDRESS             0.60  '103.21.58.144'
+PERSON                 0.85  'Arjun Mehta'

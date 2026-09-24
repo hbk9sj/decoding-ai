@@ -1,0 +1,40 @@
+{
+  "kind": "text",
+  "pillar": "tried",
+  "template": "field",
+  "slug": "2026-09-24-presidio-india-pii",
+  "topic": "Ran the open-source Presidio PII scrubber on a fake Indian KYC email: default settings leaked PAN and UPI ID because the six India recognizers ship switched off",
+  "kicker": "Tried it",
+  "handle": "Decoding AI",
+  "body": "I ran a free data scrubber on a fake Indian KYC email. It hid 11 of 14 personal details and left the PAN in plain sight.\n\nThe tool is Presidio, an open-source library that finds and masks personal data before text goes to an AI model. I wrote one email with 14 made-up details: two names, Aadhaar, PAN, UPI ID, card, bank account, passport, address and more. Then I ran it on default settings.\n\nIt missed the PAN and the UPI ID completely. It left \"Flat 4B\" and \"12th Main Road\" in the address. And 4 of its catches had the wrong label. It hid the Aadhaar as a date and the car number as a person.\n\nWhy? Presidio ships six India checks, and the default setup leaves all six switched off. I turned them on and ran the same email. Now 12 of 14 were hidden and the PAN was gone. But \"priya.r@\" from the UPI ID and part of the address still got through.\n\nA scrubber is a seat belt, not a guarantee. And it only knows the IDs someone told it to look for.\n\nToday, if your team masks data before it goes into AI, ask which country's IDs the tool is set up to find.\n\nSource: Presidio docs, PII entities supported, accessed 24 Sep 2026 — https://data-privacy-stack.github.io/presidio/supported_entities/",
+  "action": "if your team masks data before it goes into AI, ask which country's IDs the tool is set up to find",
+  "source": {
+    "title": "PII entities supported by Presidio",
+    "publisher": "Presidio docs",
+    "date": "accessed 24 Sep 2026",
+    "url": "https://data-privacy-stack.github.io/presidio/supported_entities/"
+  },
+  "card": {
+    "type": "contrast",
+    "headline": "One fake KYC email, 14 personal details",
+    "leftLabel": "Default settings",
+    "left": "11 of 14 hidden. The PAN and the UPI ID went through untouched.",
+    "rightLabel": "India checks on",
+    "right": "12 of 14 hidden. The PAN was caught. Part of the UPI ID and address still showed.",
+    "alt": "Card comparing two runs of the Presidio data scrubber on one fake Indian KYC email with 14 personal details. Default settings hid 11 of 14 and let the PAN and UPI ID through. With its India checks switched on it hid 12 of 14, but part of the UPI ID and the address still showed."
+  },
+  "second_comment": "What I did not test: scanned documents, Hindi text, or swapping in a bigger language model inside Presidio. One email is one email. The fake email, both scripts and the full output are saved with this post, so the test can be rerun.",
+  "evidence": [
+    "evidence/scoring.md",
+    "evidence/input_email.txt",
+    "evidence/presidio_run.txt",
+    "evidence/presidio_run_india.txt",
+    "evidence/output_redacted.txt",
+    "evidence/output_redacted_india.txt",
+    "evidence/default_recognizers_india_excerpt.yaml",
+    "evidence/run_presidio.py",
+    "evidence/run_presidio_india.py",
+    "evidence/make_input.py",
+    "evidence/versions.txt"
+  ]
+}

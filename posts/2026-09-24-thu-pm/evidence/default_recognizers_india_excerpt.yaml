@@ -1,0 +1,26 @@
+  - name: InPanRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+    country_code: in
+
+  - name: InAadhaarRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+    country_code: in
+
+  - name: InVehicleRegistrationRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
+    country_code: in
+
+  - name: InPassportRecognizer
+    supported_languages: 
+    - en
+    type: predefined
+    enabled: false
