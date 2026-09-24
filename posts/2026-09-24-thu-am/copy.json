@@ -1,0 +1,33 @@
+{
+  "kind": "carousel",
+  "pillar": "belief",
+  "template": "memo",
+  "slug": "2026-09-24-ai-faster-at-facts-less-right",
+  "topic": "Ulm field RCT (arXiv, 28 Jul 2026): AI made fact-finding 29% faster but less correct, while summaries and idea drafts got faster and better",
+  "kicker": "The wrong belief",
+  "issue": "No. 02",
+  "handle": "Decoding AI",
+  "stamp": "Internal memo",
+  "title": "AI is fastest where you should trust it least",
+  "source": {
+    "title": "Faster, Higher, Stronger? The Impact of GenAI on Knowledge Work Productivity – Evidence from the Field",
+    "publisher": "Bottesch et al., University of Ulm and KIT, arXiv:2607.25922",
+    "date": "28 Jul 2026",
+    "url": "https://arxiv.org/abs/2607.25922"
+  },
+  "body": "About 25% of AI-assisted answers got a number wrong or made one up. The right figure was in the company's own files.\n\nThat is from a field experiment published on 28 July 2026. 128 staff at a large industrial firm did three real tasks, with or without an AI tool built on their own documents.\n\nMost of us treat AI as the fast way to look things up. This study found that is where it slipped.\n\nFinding facts: 29% faster with AI, and less correct.\nSumming up a text: 52% faster, and better on 4 of 6 quality scores.\nDrafting ideas: 39% faster, and better, but no more original.\n\nThe researchers think people trusted the tool and skipped the check. The speed hid the drop in quality.\n\nWhat it does not mean: AI is bad at research. The tool was GPT-4o mini, tested in early 2025, at one company.\n\nToday, when AI hands you a number, open the file it came from before you forward it.\n\nSource: Bottesch et al., arXiv, 28 Jul 2026 — https://arxiv.org/abs/2607.25922",
+  "action": "when AI hands you a number, open the file it came from before you forward it",
+  "second_comment": "One detail from the method that stuck with me: the AI tool was reading the same company files the right answers were in. So the wrong numbers were not a gap in the data. They were a gap in checking. Summaries and drafts are raw material you shape. A fact is something you pass on.",
+  "evidence": ["evidence/sources.md"],
+  "pages": [
+    { "type": "cover", "headline": "AI made them faster at finding facts, and less right", "deck": "128 staff at one industrial firm did three real tasks with and without AI. One result should change how you check its work.", "cue": "Swipe →", "readtime": "90-second read" },
+    { "type": "stat", "label": "AI-assisted answers that misreported or made up a number", "value": "~25%", "body": "The right figures were in the company files the AI tool was reading from. The wrong ones were handed in anyway." },
+    { "type": "point", "index": 1, "headline": "Finding facts: faster, but less correct", "body": "With AI, the fact-finding task took 29% less time. Scores for getting the facts right fell, both for numbers and for written details." },
+    { "type": "point", "index": 2, "headline": "Summaries: faster and better", "body": "Cutting a product text to four sentences or fewer took 52% less time with AI. Expert judges scored it clearly better on 4 of 6 quality measures." },
+    { "type": "point", "index": 3, "headline": "Ideas: faster and clearer, not more original", "body": "Drafting ideas took 39% less time. The ideas were more complete and better argued. Judges found no clear gain in how new they were." },
+    { "type": "contrast", "headline": "Where the speed hid the problem", "leftLabel": "Summarise or draft", "left": "The AI output is raw material. You still shape it, and quality went up.", "rightLabel": "Look something up", "right": "The AI output is the answer. The researchers think people took it as given, and accuracy fell." },
+    { "type": "quote", "quote": "Organizations implementing GenAI may hence face the risk of faster completion masking reductions in output quality.", "attrib": "Bottesch et al., arXiv, 28 Jul 2026", "body": "What it does not mean: AI is bad at research. The tool was GPT-4o mini, tested in early 2025, at one company." },
+    { "type": "takeaway", "label": "Do this today", "headline": "Trace one number back to its file", "body": "When AI hands you a figure, open the document it came from and find it yourself before you forward it. Drafts need a read. Facts need a check." },
+    { "type": "cta", "headline": "One idea, decoded, every week", "body": "Plain English, a named source, and one thing to do with it.", "foot": "Follow for the next one" }
+  ]
+}
