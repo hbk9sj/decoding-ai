@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-09-24T06:22:34Z",
+  "posts": [
+    {
+      "id": "6ab17c8800e2e50fa51756db",
+      "sent_at": "2026-09-01T14:30:19.857Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "Five words everyone in AI uses and nobody explains:",
+      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0,
+        "engagementRate": 0,
+        "impressions": 29,
+        "reach": 10
+      }
+    },
+    {
+      "id": "6ab17c8800e2e50fa51756d5",
+      "sent_at": "2026-09-02T16:11:47.671Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "🧠 A model does not know the difference between remembering and guessing.",
+      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0,
+        "engagementRate": 0,
+        "impressions": 33,
+        "reach": 3
+      }
+    },
+    {
+      "id": "6ab17c8800e2e50fa51756d7",
+      "sent_at": "2026-09-02T16:27:07.984Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "🎛️ Temperature, decoded.",
+      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0,
+        "engagementRate": 0,
+        "impressions": 40,
+        "reach": 6
+      }
+    },
+    {
+      "id": "6ab17c8800e2e50fa51756d3",
+      "sent_at": "2026-09-04T13:33:00.266Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "⚠️ Your AI assistant will follow instructions it finds inside the documents you feed it. That is prompt injection, and nobody has fixed it.",
+      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 3.23,
+        "impressions": 31,
+        "reach": 4
+      }
+    },
+    {
+      "id": "6ab17c8800e2e50fa51756d9",
+      "sent_at": "2026-09-07T15:13:35.395Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "🔍 A vector database does not find the nearest match. It finds a close-enough one, fast, and never says what it skipped.",
+      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 6.25,
+        "impressions": 16,
+        "reach": 4
+      }
+    },
+    {
+      "id": "6ab270698920619c8e5a2c5b",
+      "sent_at": "2026-09-23T03:45:02.662Z",
+      "folder": "2026-09-23-wed",
+      "kind": "text",
+      "pillar": "tried",
+      "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
+      "metrics_updated_at": "2026-09-23T16:51:11.914Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0,
+        "engagementRate": 0,
+        "impressions": 189,
+        "reach": 133
+      }
+    },
+    {
+      "id": "6ab266422f30e64179d4ecdd",
+      "sent_at": "2026-09-23T03:45:23.917Z",
+      "folder": "2026-09-23-tue",
+      "kind": "carousel",
+      "pillar": "belief",
+      "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
+      "metrics_updated_at": "2026-09-23T16:51:11.914Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0,
+        "engagementRate": 0,
+        "impressions": 7,
+        "reach": 6
+      }
+    }
+  ]
+}
