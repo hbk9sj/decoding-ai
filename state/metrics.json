@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T06:22:34Z",
+  "generated_at": "2026-09-25T06:17:37Z",
   "posts": [
     {
       "id": "6ab17c8800e2e50fa51756db",
@@ -8,7 +8,7 @@
       "kind": null,
       "pillar": null,
       "hook": "Five words everyone in AI uses and nobody explains:",
-      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -24,13 +24,13 @@
       "kind": null,
       "pillar": null,
       "hook": "🧠 A model does not know the difference between remembering and guessing.",
-      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 33,
-        "reach": 3
+        "impressions": 34,
+        "reach": 4
       }
     },
     {
@@ -40,12 +40,12 @@
       "kind": null,
       "pillar": null,
       "hook": "🎛️ Temperature, decoded.",
-      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 40,
+        "impressions": 41,
         "reach": 6
       }
     },
@@ -56,12 +56,12 @@
       "kind": null,
       "pillar": null,
       "hook": "⚠️ Your AI assistant will follow instructions it finds inside the documents you feed it. That is prompt injection, and nobody has fixed it.",
-      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 3.23,
-        "impressions": 31,
+        "engagementRate": 3.13,
+        "impressions": 32,
         "reach": 4
       }
     },
@@ -72,12 +72,12 @@
       "kind": null,
       "pillar": null,
       "hook": "🔍 A vector database does not find the nearest match. It finds a close-enough one, fast, and never says what it skipped.",
-      "metrics_updated_at": "2026-09-23T16:51:11.915Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 6.25,
-        "impressions": 16,
+        "engagementRate": 5.88,
+        "impressions": 17,
         "reach": 4
       }
     },
@@ -88,13 +88,13 @@
       "kind": "text",
       "pillar": "tried",
       "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
-      "metrics_updated_at": "2026-09-23T16:51:11.914Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.417Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 189,
-        "reach": 133
+        "impressions": 197,
+        "reach": 140
       }
     },
     {
@@ -104,13 +104,26 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
-      "metrics_updated_at": "2026-09-23T16:51:11.914Z",
+      "metrics_updated_at": "2026-09-24T15:51:21.412Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 7,
-        "reach": 6
+        "impressions": 11,
+        "reach": 8
+      }
+    },
+    {
+      "id": "6ab5cd8aa14029bcc71ea06a",
+      "sent_at": "2026-09-25T02:30:26.949Z",
+      "folder": "2026-09-25-fri-am",
+      "kind": "text",
+      "pillar": "decoded",
+      "hook": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.",
+      "metrics_updated_at": "2026-09-25T01:25:30.064Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 0
       }
     }
   ]
