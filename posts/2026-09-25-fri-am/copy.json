@@ -1,0 +1,25 @@
+{
+  "kind": "text",
+  "pillar": "decoded",
+  "template": "broadsheet",
+  "slug": "2026-09-25-ai-adopters-senior-shift",
+  "topic": "Stanford/KCL paper (20 Sep 2026), 41 countries: AI-adopting firms grew senior staff 6.7% vs controls; junior share fell 1.9 points; hiring shifts toward seniors",
+  "kicker": "Decoded",
+  "handle": "Decoding AI",
+  "body": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.\n\nThat is from a new Stanford and King's College London paper, dated 20 September 2026. It tracks 1.25 billion job ads and 154 million work records across 41 countries.\n\nThe authors put it in one line: AI adoption \"changes which workers an affiliate employs more than how many.\"\n\nBy March 2026, juniors made up 1.9 points less of the workforce at AI-adopting offices. Total jobs there were 3.3% higher. The junior share fell in 23 of the 31 countries tested. In computer and maths jobs it fell 3.3 points.\n\nWhat it does not mean: AI is not firing juniors. Junior jobs were 2.5% lower, and the authors say that figure is not statistically significant. It covers large multinational firms, not every employer.\n\nWhat it does mean: the first rung is getting thinner. In the paper's model, AI takes work off juniors and adds work for seniors in the jobs it touches most.\n\nToday, pick one task AI now drafts on your team and make checking it your newest hire's job. That keeps the learning in the job.\n\nSource: Chandar and Klein Teeselink, Stanford Digital Economy Lab, 20 Sep 2026 — https://digitaleconomy.stanford.edu/app/uploads/2026/09/HowDoesAIChangeLaborDemand.pdf",
+  "action": "Today, pick one task AI now drafts on your team and make checking it your newest hire's job",
+  "source": {
+    "title": "How Does AI Change Labor Demand? Evidence from 41 Countries",
+    "publisher": "Stanford Digital Economy Lab (Chandar and Klein Teeselink)",
+    "date": "20 Sep 2026",
+    "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/09/HowDoesAIChangeLaborDemand.pdf"
+  },
+  "card": {
+    "type": "stat",
+    "label": "More senior staff at AI-adopting firms",
+    "value": "6.7%",
+    "body": "Against similar firms without AI, across 41 countries. Juniors got no such rise, and their share of staff fell 1.9 points by March 2026.",
+    "alt": "Card reading 6.7%: how many more senior staff firms that adopted AI had than similar firms that did not, across 41 countries. Juniors got no such rise, and their share of the workforce fell 1.9 points by March 2026."
+  },
+  "second_comment": "How the paper spots an AI adopter: the firm posts job ads that involve generative AI. Each office is then compared with similar offices in the same country and sector. The drop in the junior share was statistically significant in seven countries, including the United States, Brazil and Saudi Arabia."
+}
