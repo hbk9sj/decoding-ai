@@ -1,0 +1,8 @@
+source table: 6 data rows x 5 columns = 30 cells
+
+file                  chars  table cols  cells kept  text present
+report.pdf              489           3        6/30         30/30
+report.docx             455           5       30/30         30/30
+report.xlsx             365           5       30/30         30/30
+report.pptx             432           5       30/30         30/30
+report_scanned.pdf        0           0        0/30          0/30

@@ -1,0 +1,42 @@
+{
+  "kind": "text",
+  "pillar": "tried",
+  "template": "riso",
+  "slug": "2026-09-26-markitdown-tables",
+  "topic": "Ran Microsoft's open-source MarkItDown on one 30-cell sales table saved as Word, Excel, PowerPoint, PDF and scanned PDF: office files kept 30/30 cells, the PDF squeezed 5 columns into 3, the scan returned nothing",
+  "kicker": "Tried it",
+  "handle": "Decoding AI",
+  "body": "I gave one sales table to Microsoft's free file-to-AI converter in 5 file types. The PDF version kept only 6 of 30 cells in place.\n\nThe tool is MarkItDown. It turns Word, Excel, PowerPoint and PDF files into plain text that an AI model can read. It is open source, and it ran here with no account and no key.\n\nMy table had 6 regions and 5 columns: 30 cells of sales numbers and names. I saved the same data five ways and ran each one.\n\nWord, Excel and PowerPoint came back clean. All 30 cells sat in the right row and column.\n\nThe PDF kept every word but squeezed 5 columns into 3. \"North\" and its first-quarter number landed in one cell. Only one column, 6 cells, stayed on its own.\n\nThe scanned PDF came back empty. 0 characters, and no warning. Reading text from images is an add-on that needs an AI model hooked up.\n\nSo when the AI gets a number wrong from your report, it may never have seen the table you saw.\n\nToday, when a table matters, send the AI the Excel or Word file, not the PDF export.\n\nSource: Microsoft, MarkItDown on GitHub, accessed 26 Sep 2026 — https://github.com/microsoft/markitdown",
+  "action": "when a table matters, send the AI the Excel or Word file, not the PDF export",
+  "source": {
+    "title": "microsoft/markitdown README",
+    "publisher": "Microsoft (GitHub)",
+    "date": "accessed 26 Sep 2026",
+    "url": "https://github.com/microsoft/markitdown"
+  },
+  "card": {
+    "type": "contrast",
+    "headline": "One sales table, 30 cells, five file types",
+    "leftLabel": "Word, Excel, PowerPoint",
+    "left": "All 30 cells in the right row and column.",
+    "rightLabel": "PDF and scanned PDF",
+    "right": "The PDF kept 6 of 30 in place. The scan gave back 0 characters.",
+    "alt": "Card comparing how Microsoft's MarkItDown converted one sales table of 30 cells. From Word, Excel and PowerPoint, all 30 cells stayed in the right row and column. From a PDF, only 6 of 30 stayed in place and 5 columns became 3. From a scanned PDF, it returned 0 characters."
+  },
+  "second_comment": "What I did not test: real PDFs from finance tools, tables that span pages, or the image-reading add-on, which needs an AI model connected. This was one small made-up table. The Word file also turned its header into an ordinary row, which a model may or may not notice. The files, the scoring script and the raw output are saved with this post.",
+  "evidence": [
+    "evidence/evidence_sheet.md",
+    "evidence/scoring.txt",
+    "evidence/markitdown_run.txt",
+    "evidence/table.csv",
+    "evidence/output_report_pdf.md",
+    "evidence/output_report_docx.md",
+    "evidence/output_report_xlsx.md",
+    "evidence/output_report_pptx.md",
+    "evidence/output_report_scanned_pdf.md",
+    "evidence/make_input.py",
+    "evidence/make_scan.py",
+    "evidence/score.py",
+    "evidence/versions.txt"
+  ]
+}
