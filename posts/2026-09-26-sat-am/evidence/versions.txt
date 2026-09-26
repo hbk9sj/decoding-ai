@@ -1,0 +1,6 @@
+markitdown==0.1.8
+pdfminer.six==20260107
+pdfplumber==0.11.10
+pillow==12.3.0
+reportlab==5.0.1
+Python 3.11.15

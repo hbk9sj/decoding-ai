@@ -1,0 +1,65 @@
+$ markitdown --list-plugins
+Installed MarkItDown 3rd-party Plugins:
+
+  * No 3rd-party plugins installed.
+
+Find plugins by searching for the hashtag #markitdown-plugin on GitHub.
+
+
+$ markitdown report.pdf   (stdout+stderr)
+Regional sales, Q1 vs Q2 2026 (INR thousands)
+Prepared for the Q2 review.
+| Region Q1 revenue | Q2 revenue | Change Owner   |
+| ----------------- | ---------- | -------------- |
+| North 41,200      | 38,900     | -5.6% A. Mehta |
+| South 52,750      | 61,300     | 16.2% R. Iyer  |
+| East 29,400       | 29,950     | 1.9% S. Das    |
+| West 47,100       | 44,020     | -6.5% K. Shah  |
+| Central 18,600    | 23,480     | 26.2% P. Rao   |
+| Online 66,300     | 71,150     | 7.3% D. Nair   |
+[exit code 0]
+
+$ markitdown report.docx   (stdout+stderr)
+## Regional sales, Q1 vs Q2 2026 (INR thousands)
+
+Prepared for the Q2 review.
+
+|  |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Region | Q1 revenue | Q2 revenue | Change | Owner |
+| North | 41,200 | 38,900 | -5.6% | A. Mehta |
+| South | 52,750 | 61,300 | 16.2% | R. Iyer |
+| East | 29,400 | 29,950 | 1.9% | S. Das |
+| West | 47,100 | 44,020 | -6.5% | K. Shah |
+| Central | 18,600 | 23,480 | 26.2% | P. Rao |
+| Online | 66,300 | 71,150 | 7.3% | D. Nair |
+[exit code 0]
+
+$ markitdown report.xlsx   (stdout+stderr)
+## Q2
+| Region | Q1 revenue | Q2 revenue | Change | Owner |
+| --- | --- | --- | --- | --- |
+| North | 41,200 | 38,900 | -5.6% | A. Mehta |
+| South | 52,750 | 61,300 | 16.2% | R. Iyer |
+| East | 29,400 | 29,950 | 1.9% | S. Das |
+| West | 47,100 | 44,020 | -6.5% | K. Shah |
+| Central | 18,600 | 23,480 | 26.2% | P. Rao |
+| Online | 66,300 | 71,150 | 7.3% | D. Nair |
+[exit code 0]
+
+$ markitdown report.pptx   (stdout+stderr)
+<!-- Slide number: 1 -->
+# Regional sales, Q1 vs Q2 2026 (INR thousands)
+| Region | Q1 revenue | Q2 revenue | Change | Owner |
+| --- | --- | --- | --- | --- |
+| North | 41,200 | 38,900 | -5.6% | A. Mehta |
+| South | 52,750 | 61,300 | 16.2% | R. Iyer |
+| East | 29,400 | 29,950 | 1.9% | S. Das |
+| West | 47,100 | 44,020 | -6.5% | K. Shah |
+| Central | 18,600 | 23,480 | 26.2% | P. Rao |
+| Online | 66,300 | 71,150 | 7.3% | D. Nair |
+[exit code 0]
+
+$ markitdown report_scanned.pdf   (stdout+stderr)
+
+[exit code 0]
