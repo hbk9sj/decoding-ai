@@ -1,0 +1,30 @@
+{
+  "kind": "text",
+  "pillar": "decoded",
+  "template": "memo",
+  "slug": "2026-09-26-copilot-seat-and-meter",
+  "topic": "Microsoft's new Copilot (25 Sep 2026): everyday AI in Chat and Office apps stays on the per-user seat; Cowork, Code, Autopilot and frontier models move to usage-based billing with credits",
+  "kicker": "Decoded",
+  "handle": "Decoding AI",
+  "body": "On 25 September, Microsoft gave its work Copilot two price tags.\n\nA flat seat covers everyday AI. A meter covers the work you hand off.\n\nThe seat: Copilot in Chat, Word, Excel, PowerPoint, Outlook and Teams. A feature called Auto picks the model for each request.\n\nThe meter: Cowork, which runs a task end to end. Code, which builds small apps. Autopilot, an agent that \"keeps working while you sleep\". And top models like Astra and Fable.\n\nWhat changes for you: handing work to an agent now has a cost you can see. Copilot will show your credit use and what is left. Your IT team can pick which models your group gets.\n\nWhat it does not mean: that your chat got dearer. The post names no new price. Most of this is not here yet either. Home and Code go to an early-access group first, and Autopilot starts in private preview.\n\nThe question at work moves from \"who has a licence\" to \"which tasks are worth paying for\".\n\nThis week, write down how long one task takes you by hand, one you would hand to an agent. That is the bar the meter has to beat.\n\nSource: Microsoft, 25 Sep 2026 — https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+  "action": "This week, write down how long one task takes you by hand",
+  "source": {
+    "title": "Introducing the new Copilot with Home, Code and Autopilot",
+    "publisher": "Microsoft",
+    "date": "25 Sep 2026",
+    "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+  },
+  "card": {
+    "type": "contrast",
+    "headline": "Microsoft's new Copilot, two ways to pay",
+    "leftLabel": "Flat seat, per user",
+    "left": "Chat, Word, Excel, PowerPoint, Outlook and Teams. Auto picks the model.",
+    "rightLabel": "Meter, billed by use",
+    "right": "Cowork, Code, Autopilot, and top models like Astra and Fable.",
+    "alt": "Card comparing the two ways to pay for Microsoft's new Copilot. The flat per-user seat covers Chat, Word, Excel, PowerPoint, Outlook and Teams, with Auto picking the model. The meter, billed by use, covers Cowork, Code, Autopilot and top models like Astra and Fable."
+  },
+  "second_comment": "What Microsoft's post does not say: the price of the seat, the price of a credit, or when the meter reaches your company. Your IT team sets the limits, so the useful question to ask them is how credits will be shared out, and who decides which tasks get the top models.",
+  "evidence": [
+    "evidence/evidence_sheet.md"
+  ]
+}
