@@ -41,5 +41,15 @@
     "due_at": "2026-09-25T02:30:00.000Z",
     "live_url": "https://www.linkedin.com/feed/update/urn:li:share:7509076822429470720",
     "sent_at": "2026-09-25T02:30:26.949Z"
+  },
+  "2026-09-26-sat-pm": {
+    "topic": "Microsoft's new Copilot (25 Sep 2026): everyday AI in Chat and Office apps stays on the per-user seat; Cowork, Code, Autopilot and frontier models move to usage-based billing with credits",
+    "pillar": "decoded",
+    "kind": "text",
+    "template": "memo",
+    "hook": "On 25 September, Microsoft gave its work Copilot two price tags.",
+    "post_id": "6ab7d56b4b4b9f2c1c4dad80",
+    "date": "2026-09-26",
+    "due_at": "2026-09-26T14:30:00.000Z"
   }
 }
