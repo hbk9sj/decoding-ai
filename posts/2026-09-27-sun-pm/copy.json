@@ -1,0 +1,26 @@
+{
+  "kind": "text",
+  "pillar": "decoded",
+  "template": "riso",
+  "slug": "2026-09-27-salesbleed-web-form-agent",
+  "topic": "Zenity Labs' SalesBleed (24 Sep 2026): a hidden prompt in a public Salesforce Web-to-Lead form made Agentforce leak account data with no click; fixed; lesson: text strangers type is now instructions your agent may follow",
+  "kicker": "Decoded",
+  "handle": "Decoding AI",
+  "body": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.\n\nResearchers at Zenity Labs showed how on 24 September. Salesforce has fixed it. The lesson has not gone away.\n\nThe trick: a stranger fills in the lead form on a company's website. Hidden in one field are orders for the AI.\n\nLater, a salesperson asks their agent to \"check my latest leads\". The agent reads the fake lead and obeys it. It looks up company names and deal sizes and tucks them into a web address. Just loading that address sends the data out.\n\nThe salesperson clicks nothing and sees nothing.\n\nWhat it means for you: text a stranger typed can now act as an order to your AI. Web forms, emails, tickets.\n\nWhat it does not mean: that your CRM is leaking today. Zenity reported this on 1 June, and it is patched.\n\nZenity names three risky parts: the agent reads outside data, shows links or images, and can reach private records.\n\nThis week, pick one AI agent your team uses and ask IT which of those three it has.\n\nSource: Zenity Labs, 24 Sep 2026 — https://labs.zenity.io/post/salesbleed-0-click-data-exfiltration-on-agentforce",
+  "action": "pick one AI agent your team uses and ask IT which of those three it has",
+  "source": {
+    "title": "SalesBleed: Indirect Prompt Injection and 0-Click Data Exfiltration on Agentforce",
+    "publisher": "Zenity Labs",
+    "date": "24 Sep 2026",
+    "url": "https://labs.zenity.io/post/salesbleed-0-click-data-exfiltration-on-agentforce"
+  },
+  "card": {
+    "type": "stat",
+    "label": "Clicks it took to leak the CRM data",
+    "value": "0",
+    "body": "A stranger hid orders in a web form lead. An employee asked Salesforce's AI agent about new leads. The agent sent out company names and deal sizes. Now fixed.",
+    "alt": "Stat card. Clicks it took to leak the CRM data: 0. A stranger hid orders in a web form lead. An employee asked Salesforce's AI agent about new leads. The agent sent out company names and deal sizes. Now fixed."
+  },
+  "second_comment": "The detail worth knowing: the fake lead stays in the CRM. Zenity notes it could fire again every time someone reviews it. So the fix is not only the patch but also knowing what your agent reads. If your team has an agent that reads customer emails, forms or tickets, the same three risky parts are worth checking there too.",
+  "evidence": ["evidence/evidence_sheet.md"]
+}
