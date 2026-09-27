@@ -65,5 +65,15 @@
     "due_at": "2026-09-27T02:30:00.000Z",
     "live_url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7509801596076105728",
     "sent_at": "2026-09-27T02:30:26.426Z"
+  },
+  "2026-09-27-sun-pm": {
+    "topic": "Zenity Labs' SalesBleed (24 Sep 2026): a hidden prompt in a public Salesforce Web-to-Lead form made Agentforce leak account data with no click; fixed; lesson: text strangers type is now instructions your agent may follow",
+    "pillar": "decoded",
+    "kind": "text",
+    "template": "riso",
+    "hook": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.",
+    "post_id": "6ab91feb612c9e6ac9265666",
+    "date": "2026-09-27",
+    "due_at": "2026-09-27T14:30:00.000Z"
   }
 }
