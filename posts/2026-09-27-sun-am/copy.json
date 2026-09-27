@@ -1,0 +1,82 @@
+{
+  "kind": "carousel",
+  "pillar": "belief",
+  "template": "field",
+  "slug": "2026-09-27-ai-speedup-illusion",
+  "topic": "Stanford-led preregistered studies (arXiv 2605.22687, May 2026, N=2,691): people expect AI to save 55.7 s on quick tasks, it saves 7.5 s; on easy tasks AI is slower; using AI raises later AI use",
+  "kicker": "The wrong belief",
+  "issue": "No. 02",
+  "handle": "Decoding AI",
+  "title": "AI felt faster. The stopwatch disagreed.",
+  "source": {
+    "title": "The efficiency-gain illusion: People underestimate the rate of AI use and overestimate its benefits on simple tasks",
+    "publisher": "Yu et al., Stanford University (arXiv:2605.22687)",
+    "date": "May 2026",
+    "url": "https://arxiv.org/abs/2605.22687"
+  },
+  "body": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.\n\nThat gap comes from three preregistered studies of 2,691 US adults, led by researchers at Stanford and posted in May 2026.\n\nThe tasks were small. Add two numbers. Fix a typo. Find another word for \"enjoy\".\n\nPeople guessed their own speed well: 99 seconds, against 93.7 for real. They thought AI would finish in 43.3. It took 86.2.\n\nOn the easiest tasks, AI made people slower: 70.2 seconds, against 60.2 alone. Writing the prompt took longer than reading the answer.\n\nAnd the habit feeds itself. After two tasks with AI, people chose it for 44.5% of the next ones. After two tasks alone, 27.7%.\n\nWhat it does not mean: that AI is slow on big jobs. Every task here took under five minutes.\n\nThis week, time one small task both ways, by hand and with AI. Keep the faster habit.\n\nSource: Yu et al., Stanford, arXiv, May 2026 — https://arxiv.org/abs/2605.22687",
+  "action": "time one small task both ways, by hand and with AI",
+  "pages": [
+    {
+      "type": "cover",
+      "headline": "AI felt faster. The stopwatch said it barely was.",
+      "deck": "Stanford-led researchers timed 2,691 people on quick tasks, with and without AI. What people expected and what happened were far apart.",
+      "cue": "Swipe →",
+      "readtime": "90-second read"
+    },
+    {
+      "type": "stat",
+      "label": "Time people expected AI to save on a quick task",
+      "value": "55.7 sec",
+      "body": "It actually saved 7.5 seconds. Three preregistered studies, all on tasks that take under five minutes."
+    },
+    {
+      "type": "point",
+      "index": 1,
+      "headline": "You know your own speed",
+      "body": "People guessed they would need 99 seconds alone. They took 93.7. Their guess with AI was 43.3 seconds. It took 86.2, nearly double."
+    },
+    {
+      "type": "contrast",
+      "headline": "The easiest tasks, timed",
+      "leftLabel": "By hand",
+      "left": "60.2 seconds on average.",
+      "rightLabel": "With AI",
+      "right": "70.2 seconds. Writing the prompt took longer than reading the answer."
+    },
+    {
+      "type": "point",
+      "index": 2,
+      "headline": "You use AI more than you think",
+      "body": "Asked ahead, people said they would use AI on 33% of tasks. They used it on 47%. On the easiest tasks, 20% said yes and 38% did."
+    },
+    {
+      "type": "point",
+      "index": 3,
+      "headline": "Using it makes you reach for it again",
+      "body": "After two tasks with AI, people chose it for 44.5% of the next ones. After two tasks done alone, 27.7%."
+    },
+    {
+      "type": "quote",
+      "quote": "People will use AI if they believe it to be faster.",
+      "attrib": "Yu et al., Stanford, arXiv, 2026",
+      "body": "What it does not mean: that AI is slow on big jobs. Every task in these studies took under five minutes."
+    },
+    {
+      "type": "takeaway",
+      "label": "Do this today",
+      "headline": "Time one small task both ways",
+      "body": "Pick one small task you now hand to AI. Do it once by hand and once with AI, and time both. Keep the faster habit."
+    },
+    {
+      "type": "cta",
+      "headline": "One idea, decoded, every week",
+      "body": "Plain English, a named source, and one thing to do with it.",
+      "foot": "Follow for the next one"
+    }
+  ],
+  "second_comment": "The limits, from the paper itself: the people were US adults on a paid survey site, and every task took under five minutes. The authors say the next question is the size of task where AI really starts to save time and effort. That line is worth finding in your own work, one timed task at a time.",
+  "evidence": [
+    "evidence/evidence_sheet.md"
+  ]
+}
