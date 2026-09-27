@@ -53,5 +53,15 @@
     "due_at": "2026-09-26T14:30:00.000Z",
     "live_url": "https://www.linkedin.com/feed/update/urn:li:share:7509620403376447489",
     "sent_at": "2026-09-26T14:30:26.870Z"
+  },
+  "2026-09-27-sun-am": {
+    "topic": "Stanford-led preregistered studies (arXiv 2605.22687, May 2026, N=2,691): people expect AI to save 55.7 s on quick tasks, it saves 7.5 s; on easy tasks AI is slower; using AI raises later AI use",
+    "pillar": "belief",
+    "kind": "carousel",
+    "template": "field",
+    "hook": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.",
+    "post_id": "6ab875919f89edbefe855f0e",
+    "date": "2026-09-27",
+    "due_at": "2026-09-27T02:30:00.000Z"
   }
 }
