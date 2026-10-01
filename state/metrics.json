@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T06:58:30Z",
+  "generated_at": "2026-10-01T07:23:51Z",
   "posts": [
     {
       "id": "6ab17c8800e2e50fa51756db",
@@ -8,7 +8,7 @@
       "kind": null,
       "pillar": null,
       "hook": "Five words everyone in AI uses and nobody explains:",
-      "metrics_updated_at": "2026-09-29T10:52:22.929Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.727Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -24,7 +24,7 @@
       "kind": null,
       "pillar": null,
       "hook": "🧠 A model does not know the difference between remembering and guessing.",
-      "metrics_updated_at": "2026-09-29T10:52:22.929Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.727Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -40,7 +40,7 @@
       "kind": null,
       "pillar": null,
       "hook": "🎛️ Temperature, decoded.",
-      "metrics_updated_at": "2026-09-29T10:52:22.929Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.727Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -56,7 +56,7 @@
       "kind": null,
       "pillar": null,
       "hook": "⚠️ Your AI assistant will follow instructions it finds inside the documents you feed it. That is prompt injection, and nobody has fixed it.",
-      "metrics_updated_at": "2026-09-29T10:52:22.929Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
@@ -72,7 +72,7 @@
       "kind": null,
       "pillar": null,
       "hook": "🔍 A vector database does not find the nearest match. It finds a close-enough one, fast, and never says what it skipped.",
-      "metrics_updated_at": "2026-09-29T10:52:22.929Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
@@ -88,7 +88,7 @@
       "kind": "text",
       "pillar": "tried",
       "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -104,7 +104,7 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -120,7 +120,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -136,7 +136,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "On 25 September, Microsoft gave its work Copilot two price tags.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -152,7 +152,7 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -168,7 +168,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.",
-      "metrics_updated_at": "2026-09-29T10:52:22.928Z",
+      "metrics_updated_at": "2026-09-30T09:52:32.726Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
