@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T06:43:41Z",
+  "generated_at": "2026-10-04T07:06:39Z",
   "posts": [
     {
       "id": "6ab17c8800e2e50fa51756d3",
@@ -8,13 +8,13 @@
       "kind": null,
       "pillar": null,
       "hook": "⚠️ Your AI assistant will follow instructions it finds inside the documents you feed it. That is prompt injection, and nobody has fixed it.",
-      "metrics_updated_at": "2026-10-02T07:52:55.500Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 2.86,
-        "impressions": 35,
-        "reach": 5
+        "engagementRate": 2.63,
+        "impressions": 38,
+        "reach": 6
       }
     },
     {
@@ -24,13 +24,13 @@
       "kind": null,
       "pillar": null,
       "hook": "🔍 A vector database does not find the nearest match. It finds a close-enough one, fast, and never says what it skipped.",
-      "metrics_updated_at": "2026-10-02T07:52:55.500Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 5.26,
-        "impressions": 19,
-        "reach": 5
+        "engagementRate": 4.35,
+        "impressions": 23,
+        "reach": 6
       }
     },
     {
@@ -40,13 +40,13 @@
       "kind": "text",
       "pillar": "tried",
       "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 202,
-        "reach": 143
+        "impressions": 205,
+        "reach": 144
       }
     },
     {
@@ -56,13 +56,13 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 13,
-        "reach": 9
+        "impressions": 15,
+        "reach": 10
       }
     },
     {
@@ -72,12 +72,12 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 46,
+        "impressions": 47,
         "reach": 39
       }
     },
@@ -88,12 +88,12 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "On 25 September, Microsoft gave its work Copilot two price tags.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 11,
+        "impressions": 12,
         "reach": 3
       }
     },
@@ -104,13 +104,13 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 5,
-        "reach": 5
+        "impressions": 10,
+        "reach": 7
       }
     },
     {
@@ -120,13 +120,13 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.",
-      "metrics_updated_at": "2026-10-02T07:52:55.499Z",
+      "metrics_updated_at": "2026-10-04T05:53:19.312Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 5,
-        "reach": 4
+        "impressions": 12,
+        "reach": 5
       }
     }
   ]
