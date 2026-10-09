@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T07:41:27Z",
+  "generated_at": "2026-10-09T07:37:41Z",
   "posts": [
     {
       "id": "6ab270698920619c8e5a2c5b",
@@ -8,7 +8,7 @@
       "kind": "text",
       "pillar": "tried",
       "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.089Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -24,7 +24,7 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.091Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -34,13 +34,29 @@
       }
     },
     {
+      "id": "6ac87ce677837a144afea9df",
+      "sent_at": "2026-09-23T21:02:58.046Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "🔍 Two credible sources published two different Terminal-Bench 4.0 scores for the same model, one day apart.",
+      "metrics_updated_at": "2026-10-09T05:34:30.073Z",
+      "metrics": {
+        "reactions": 1,
+        "comments": 0,
+        "engagementRate": 0.5,
+        "impressions": 201,
+        "reach": 143
+      }
+    },
+    {
       "id": "6ab5cd8aa14029bcc71ea06a",
       "sent_at": "2026-09-25T02:30:26.949Z",
       "folder": "2026-09-25-fri-am",
       "kind": "text",
       "pillar": "decoded",
       "hook": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.092Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -56,7 +72,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "On 25 September, Microsoft gave its work Copilot two price tags.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.096Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -66,13 +82,29 @@
       }
     },
     {
+      "id": "6ac87ce677837a144afea9e3",
+      "sent_at": "2026-09-26T16:04:19.993Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "On 22 September two labs cut token prices in the same hour. Enterprise AI bills still go up.",
+      "metrics_updated_at": "2026-10-09T05:34:30.094Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 2,
+        "engagementRate": 6.06,
+        "impressions": 33,
+        "reach": 14
+      }
+    },
+    {
       "id": "6ab875919f89edbefe855f0e",
       "sent_at": "2026-09-27T02:30:26.426Z",
       "folder": "2026-09-27-sun-am",
       "kind": "carousel",
       "pillar": "belief",
       "hook": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.072Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -88,13 +120,61 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.",
-      "metrics_updated_at": "2026-10-08T01:54:05.942Z",
+      "metrics_updated_at": "2026-10-09T05:34:30.098Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
         "impressions": 17,
         "reach": 5
+      }
+    },
+    {
+      "id": "6ac87ce677837a144afea9d4",
+      "sent_at": "2026-10-05T17:48:19.721Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "Pick a number from 0 to 100 before you read the next line.",
+      "metrics_updated_at": "2026-10-09T05:34:30.062Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 4.35,
+        "impressions": 23,
+        "reach": 5
+      }
+    },
+    {
+      "id": "6ac87ce677837a144afea9d6",
+      "sent_at": "2026-10-06T15:57:26.475Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "Pick a number before you read on.",
+      "metrics_updated_at": "2026-10-09T05:34:30.065Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 1.43,
+        "impressions": 70,
+        "reach": 46
+      }
+    },
+    {
+      "id": "6ac87ce677837a144afea9d8",
+      "sent_at": "2026-10-08T05:03:15.706Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "1 million tokens. That is the context window one model advertises.",
+      "metrics_updated_at": "2026-10-09T05:34:30.067Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 1.54,
+        "impressions": 65,
+        "reach": 55
       }
     }
   ]
