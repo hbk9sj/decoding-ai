@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T07:37:06Z",
+  "generated_at": "2026-10-13T07:56:15Z",
   "posts": [
     {
       "id": "6ab270698920619c8e5a2c5b",
@@ -8,7 +8,7 @@
       "kind": "text",
       "pillar": "tried",
       "hook": "The same 50-row table cost me 1,236 tokens as CSV and 3,222 as JSON. Same rows. 2.6x the context.",
-      "metrics_updated_at": "2026-10-11T22:56:47.113Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.487Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -24,7 +24,7 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "71% of bosses rank overruling AI above using it. Only 38% of their staff agree.",
-      "metrics_updated_at": "2026-10-11T22:56:47.127Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.516Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -40,7 +40,7 @@
       "kind": null,
       "pillar": null,
       "hook": "🔍 Two credible sources published two different Terminal-Bench 4.0 scores for the same model, one day apart.",
-      "metrics_updated_at": "2026-10-11T22:56:47.176Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.525Z",
       "metrics": {
         "reactions": 1,
         "comments": 0,
@@ -56,7 +56,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "Firms that adopted AI ended up with 6.7% more senior staff than similar firms that did not. Junior staff got no such boost.",
-      "metrics_updated_at": "2026-10-11T22:56:47.150Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.569Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -72,12 +72,12 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "On 25 September, Microsoft gave its work Copilot two price tags.",
-      "metrics_updated_at": "2026-10-11T22:56:47.111Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.507Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 12,
+        "impressions": 13,
         "reach": 3
       }
     },
@@ -88,12 +88,12 @@
       "kind": null,
       "pillar": null,
       "hook": "On 22 September two labs cut token prices in the same hour. Enterprise AI bills still go up.",
-      "metrics_updated_at": "2026-10-11T22:56:47.146Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.462Z",
       "metrics": {
         "reactions": 0,
-        "comments": 2,
-        "engagementRate": 5.13,
-        "impressions": 39,
+        "comments": 3,
+        "engagementRate": 5.26,
+        "impressions": 57,
         "reach": 15
       }
     },
@@ -104,12 +104,12 @@
       "kind": "carousel",
       "pillar": "belief",
       "hook": "People guessed AI would save them 55.7 seconds on a quick task. It saved 7.5.",
-      "metrics_updated_at": "2026-10-11T22:56:47.144Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.471Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 11,
+        "impressions": 15,
         "reach": 7
       }
     },
@@ -120,7 +120,7 @@
       "kind": "text",
       "pillar": "decoded",
       "hook": "It took one public web form and 0 clicks to pull deal sizes out of Salesforce's AI agent.",
-      "metrics_updated_at": "2026-10-11T22:56:47.162Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.469Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
@@ -136,12 +136,12 @@
       "kind": null,
       "pillar": null,
       "hook": "Pick a number from 0 to 100 before you read the next line.",
-      "metrics_updated_at": "2026-10-11T22:56:47.182Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.504Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 4.17,
-        "impressions": 24,
+        "engagementRate": 3.57,
+        "impressions": 28,
         "reach": 5
       }
     },
@@ -152,13 +152,13 @@
       "kind": null,
       "pillar": null,
       "hook": "Pick a number before you read on.",
-      "metrics_updated_at": "2026-10-11T22:56:47.167Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.512Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 1.37,
-        "impressions": 73,
-        "reach": 47
+        "engagementRate": 1.3,
+        "impressions": 77,
+        "reach": 48
       }
     },
     {
@@ -168,13 +168,13 @@
       "kind": null,
       "pillar": null,
       "hook": "1 million tokens. That is the context window one model advertises.",
-      "metrics_updated_at": "2026-10-11T22:56:47.169Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.502Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 1.45,
-        "impressions": 69,
-        "reach": 57
+        "engagementRate": 1.39,
+        "impressions": 72,
+        "reach": 58
       }
     },
     {
@@ -184,7 +184,7 @@
       "kind": null,
       "pillar": null,
       "hook": "10 out of 10. That is how many factual questions one free AI tool answered correctly from the same 50-page PDF.",
-      "metrics_updated_at": "2026-10-11T21:54:53.191Z",
+      "metrics_updated_at": "2026-10-12T20:55:17.679Z",
       "metrics": {
         "reactions": 0,
         "comments": 0
@@ -197,13 +197,13 @@
       "kind": null,
       "pillar": null,
       "hook": "Issue #1 is live — AI news & tools, tested with hard numbers.",
-      "metrics_updated_at": "2026-10-11T22:56:47.165Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.510Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 33,
-        "reach": 14
+        "impressions": 37,
+        "reach": 16
       }
     },
     {
@@ -213,13 +213,13 @@
       "kind": null,
       "pillar": null,
       "hook": "Your local AI agent can forget its own task, and nothing tells you.",
-      "metrics_updated_at": "2026-10-11T22:56:47.137Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.492Z",
       "metrics": {
         "reactions": 0,
         "comments": 0,
         "engagementRate": 0,
-        "impressions": 24,
-        "reach": 8
+        "impressions": 35,
+        "reach": 12
       }
     },
     {
@@ -229,13 +229,13 @@
       "kind": null,
       "pillar": null,
       "hook": "10 out of 10. That is how many factual questions one free AI tool answered correctly from the same 50-page PDF.",
-      "metrics_updated_at": "2026-10-11T22:56:47.132Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.464Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 4.55,
-        "impressions": 22,
-        "reach": 3
+        "engagementRate": 3.45,
+        "impressions": 29,
+        "reach": 4
       }
     },
     {
@@ -245,13 +245,13 @@
       "kind": null,
       "pillar": null,
       "hook": "Ten state-of-the-art AI models just took a 200,000-question test.",
-      "metrics_updated_at": "2026-10-11T22:56:47.148Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.490Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 2.86,
-        "impressions": 35,
-        "reach": 6
+        "engagementRate": 1.54,
+        "impressions": 65,
+        "reach": 8
       }
     },
     {
@@ -261,13 +261,29 @@
       "kind": null,
       "pillar": null,
       "hook": "An AI filed a homicide tip. It wasn't real.",
-      "metrics_updated_at": "2026-10-11T22:56:47.130Z",
+      "metrics_updated_at": "2026-10-13T07:42:12.467Z",
       "metrics": {
         "reactions": 0,
         "comments": 1,
-        "engagementRate": 2.27,
-        "impressions": 44,
-        "reach": 14
+        "engagementRate": 0.73,
+        "impressions": 137,
+        "reach": 19
+      }
+    },
+    {
+      "id": "6acde0d4ca6f147056b35b12",
+      "sent_at": "2026-10-12T05:19:22.607Z",
+      "folder": null,
+      "kind": null,
+      "pillar": null,
+      "hook": "Your coding agent's $0.42 repair job now costs $0.12.",
+      "metrics_updated_at": "2026-10-13T07:42:12.481Z",
+      "metrics": {
+        "reactions": 0,
+        "comments": 1,
+        "engagementRate": 1.25,
+        "impressions": 80,
+        "reach": 7
       }
     }
   ]
